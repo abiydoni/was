@@ -40,7 +40,11 @@
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div class="image">
 								<img src="img/<?php echo $data['logo'];?>" alt="#">
-								<a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
+								<a href="<?php echo htmlspecialchars($data['youtube']); ?>" 
+									class="video-popup mfp-iframe"
+									rel="noopener noreferrer">
+									<i class="fa fa-play"></i>
+								</a>
 							</div>
 						</div>
 					</div>
