@@ -30,7 +30,7 @@
                                 <div class="play-icon">
                                     <i class="fa fa-play"></i>
                                 </div>
-                            </button>
+                            </button>                            
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title"><?php echo $data['nama']; ?></h5>

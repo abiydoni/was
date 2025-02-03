@@ -31,6 +31,7 @@
 		<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC0RqLa90WDfoJedoE3Z_Gy7a7o8PCL2jw"></script> -->
         <script type="text/javascript" src="js/gmaps.min.js"></script>
         <script src="js/main.js"></script>
+		<script src="js/jquery-3.6.0.min.js"></script>
 
 		<script>
 			// Tunggu sampai dokumen selesai dimuat

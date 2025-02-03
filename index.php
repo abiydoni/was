@@ -37,10 +37,18 @@
 								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
 							</div>
 						</div>
+						<?php
+						$youtube_url = $data['youtube'];
+						if (strpos($youtube_url, "watch?v=") !== false) {
+							$youtube_url = str_replace("watch?v=", "embed/", $youtube_url);
+						}
+						?>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div class="image">
 								<img src="img/<?php echo $data['logo'];?>" alt="#">
-								<a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
+								<a href="<?php echo $youtube_url; ?>" class="video video-popup mfp-iframe">
+									<i class="fa fa-play"></i>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -100,4 +108,25 @@
 			</div>
 		</section>
 		<?php } ?>
+
+	<script>
+		$(document).ready(function() {
+			$('.video-popup').magnificPopup({
+				type: 'iframe',
+				iframe: {
+					patterns: {
+						youtube: {
+							index: 'youtube.com/', 
+							id: function(url) {
+								var match = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
+								return match ? match[1] : null;
+							},
+							src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+						}
+					}
+				}
+			});
+		});
+	</script>
 	<?php include'footer.php' ?>
+	

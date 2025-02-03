@@ -32,7 +32,7 @@
 			?>
 			<ul>
 				<li class="whatsapp"><a href="https://api.whatsapp.com/send?phone=62<?php echo $data['hp']; ?>"><i class="fa fa-whatsapp"></i></a></li>
-				<li class="instagram"><a href="https://www.instagram.com/panahansalatiga"><i class="fa fa-instagram"></i></a></li>
+				<li class="instagram"><a href="<?php echo $data['ig']; ?>"><i class="fa fa-instagram"></i></a></li>
 			</ul>
 			<?php } ?>
 		</div>
