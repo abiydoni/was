@@ -1,0 +1,61 @@
+.video-btn img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Menyesuaikan ukuran modal */
+.modal-dialog {
+  width: 75vw; /* Modal akan menempati 80% lebar layar */
+  height: 75vh; /* Modal akan menempati 80% tinggi layar */
+  margin: 0; /* Menghilangkan margin default */
+  max-width: 75vw; /* Pastikan lebar tidak melebihi 80% dari layar */
+  max-height: 75vh; /* Pastikan tinggi tidak melebihi 80% dari layar */
+}
+
+.modal-body {
+  height: 100%; /* Isi modal dengan body yang menyesuaikan */
+  padding: 0; /* Mengurangi padding dalam modal */
+}
+
+.embed-responsive iframe {
+  width: 100%; /* Agar iframe memenuhi seluruh lebar modal */
+  height: 100%; /* Agar iframe memenuhi seluruh tinggi modal */
+}
+/* Pastikan gambar thumbnail berada di dalam container yang sama */
+.video-btn {
+  position: relative; /* Posisi relatif untuk menempatkan ikon play */
+  display: block;
+}
+
+/* Mengatur posisi ikon play di tengah gambar thumbnail */
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Pastikan ikon play berada di atas gambar */
+  color: white; /* Warna ikon play */
+  font-size: 3rem; /* Ukuran ikon play */
+  opacity: 0.7; /* Efek transparansi */
+}
+
+/* Efek saat hover pada ikon play */
+.video-btn:hover .play-icon {
+  opacity: 1; /* Ikon play menjadi lebih terang saat hover */
+}
+
+/* Gaya untuk tombol close agar berada di atas video */
+.modal-body .close {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  z-index: 10; /* Pastikan tombol close berada di atas video */
+  color: white; /* Warna tombol close */
+  font-size: 2rem; /* Ukuran font */
+}
+
+/* Efek hover pada tombol close */
+.modal-body .close:hover {
+  color: rgb(255, 0, 0);
+}

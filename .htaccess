@@ -1,0 +1,80 @@
+# Pastikan server membaca file index.php sebagai default
+DirectoryIndex index.php index.html index.htm
+
+# Opsi dasar untuk meningkatkan performa dan keamanan
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect ke HTTPS (opsional, jika ingin memastikan selalu menggunakan HTTPS)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Hilangkan trailing slash di URL (opsional)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+</IfModule>
+
+# Lindungi file .htaccess agar tidak bisa diakses langsung
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Aktifkan PHP jika diperlukan (opsional, sesuaikan dengan versi PHP Anda)
+<IfModule mime_module>
+    AddHandler application/x-httpd-php .php
+</IfModule>
+
+# Mengaktifkan mod_rewrite
+RewriteEngine On
+
+# **1. Redirect HTTP ke HTTPS**
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# **2. Menyembunyikan index.php**
+RewriteCond %{THE_REQUEST} /index\.php [NC]
+RewriteRule ^(.*)index\.php$ /$1 [L,R=301]
+
+# **3. Menyembunyikan ekstensi .php**
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L,QSA]
+
+# **4. Mengarahkan semua permintaan ke index.php (untuk routing)**
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+# **5. Menangani kesalahan 404**
+ErrorDocument 404 /404.php
+
+# **6. Mencegah akses langsung ke file sensitif**
+<FilesMatch "\.(htaccess|env|sql|ini|log|sh)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# **7. Memblokir direktori agar tidak bisa diakses langsung**
+Options -Indexes
+
+# **8. Aturan caching untuk meningkatkan performa**
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 day"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+# **9. Meningkatkan keamanan dengan menghapus header sensitif**
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

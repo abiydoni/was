@@ -1,0 +1,181 @@
+[28-Jan-2025 10:49:17 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 10:49:55 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:08:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:08:47 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:10:36 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:16:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:36:24 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:36:48 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:38:54 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:40:25 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:46:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:46:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:49:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:16 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:18 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:19 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 11:50:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 12:06:06 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 12:06:14 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php:7
+Stack trace:
+#0 /home2/appsbeem/public_html/was/koneksi.php(7): mysqli_connect('localhost', 'appsbeem_admin', 'A7by777__', 'appsbee_was')
+#1 /home2/appsbeem/public_html/was/header.php(1): include('/home2/appsbeem...')
+#2 /home2/appsbeem/public_html/was/index.php(2): include('/home2/appsbeem...')
+#3 {main}
+  thrown in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 12:09:11 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'appsbeem_admin'@'localhost' to database 'appsbee_was' in /home2/appsbeem/public_html/was/koneksi.php on line 7
+[28-Jan-2025 12:09:11 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home2/appsbeem/public_html/was/header.php on line 30
+[28-Jan-2025 12:09:11 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home2/appsbeem/public_html/was/header.php on line 31
+[28-Jan-2025 12:09:11 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home2/appsbeem/public_html/was/index.php on line 4
+[28-Jan-2025 12:09:11 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home2/appsbeem/public_html/was/index.php on line 5
+[31-Jan-2025 05:57:19 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'username'@'localhost' (using password: YES) in /home2/appsbeem/public_html/was/komentar.php on line 24
+[31-Jan-2025 06:02:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/appsbeem/public_html/was/proses_komentar.php:15
+Stack trace:
+#0 {main}
+  thrown in /home2/appsbeem/public_html/was/proses_komentar.php on line 15
+[31-Jan-2025 06:04:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/appsbeem/public_html/was/proses_komentar.php:15
+Stack trace:
+#0 {main}
+  thrown in /home2/appsbeem/public_html/was/proses_komentar.php on line 15
+[31-Jan-2025 06:28:05 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'username'@'localhost' (using password: YES) in /home2/appsbeem/public_html/was/proses_komentar.php on line 3
+[31-Jan-2025 06:29:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/appsbeem/public_html/was/proses_komentar.php:15
+Stack trace:
+#0 {main}
+  thrown in /home2/appsbeem/public_html/was/proses_komentar.php on line 15
+[31-Jan-2025 06:33:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/appsbeem/public_html/was/proses_komentar.php:15
+Stack trace:
+#0 {main}
+  thrown in /home2/appsbeem/public_html/was/proses_komentar.php on line 15
+[31-Jan-2025 07:05:31 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home2/appsbeem/public_html/was/diskomen_tampil.php on line 6
+[31-Jan-2025 07:05:32 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home2/appsbeem/public_html/was/diskomen_tampil.php on line 62
+[31-Jan-2025 07:07:41 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home2/appsbeem/public_html/was/diskomen_tampil.php on line 6
+[31-Jan-2025 07:07:41 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home2/appsbeem/public_html/was/diskomen_tampil.php on line 62
