@@ -8,8 +8,9 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-12 col-xs-12">
 						<div class="section-title">
-        					<h1><span><a href="scoring/index.php"><i class="fa fa-bullseye"></i> Scoring Apps</a></span> </h1><br>
-							<h2>My <span>Service</span></h2>
+						<h1><span><a href="scoring/index.php"><i class="fa fa-bullseye"></i> Scoring Apps</a></span> </h1><br>
+						<h1><span><a href="scoring/index.php"><i class="fa fa-bullseye"></i> Scoring Apps</a></span> </h1><br>
+						<h2>My <span>Service</span></h2>
 						</div> 
 					</div>
 					<div class="col-md-8 col-sm-12 col-xs-12">
