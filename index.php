@@ -37,13 +37,20 @@
 								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
 							</div>
 						</div>
+						<?php
+						$video_url = $data['uraian'];
+						if (strpos($video_url, "watch?v=") !== false) {
+							$video_url = str_replace("watch?v=", "embed/", $video_url);  // Ubah URL YouTube ke embed
+						}
+						?>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div class="image">
-								<img src="img/<?php echo $data['logo'];?>" alt="#">
+								<img src="img/<?php echo htmlspecialchars($data['logo']); ?>" alt="#" class="img-responsive img-thumbnail">
+								
 								<a href="#" class="btn btn-danger btn-lg video-btn" 
-									data-toggle="modal" 
-									data-target="#videoModal" 
-									data-video-url="https://www.youtube.com/embed/<?php echo htmlspecialchars($data['youtube']); ?>">
+								data-toggle="modal" 
+								data-target="#videoModal" 
+								data-video-url="<?php echo htmlspecialchars($video_url); ?>">
 									<i class="fa fa-play"></i> Tonton Video
 								</a>
 							</div>
