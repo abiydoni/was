@@ -23,45 +23,30 @@
 				</div>
 			</div>
 		</section>
-		<section id="about" class="about-section" style="padding: 50px 0; background-color: #f9f9f9;">
+		<section id="about" class="about">
 			<div class="container">
 				<div class="row">
-					<!-- Judul -->
-					<div class="col-md-2 col-sm-3 col-xs-12">
-						<div class="section-title">
-							<h2 class="text-primary">Tentang <span class="text-danger">Saya</span></h2>
+					<div class="about-content">
+						<div class="col-md-2 col-sm-2 col-xs-12">
+							<div class="section-title">
+								<h2>Tentang <span>Saya</span></h2>
+							</div>
 						</div>
-					</div>
-					
-					<!-- Visi Misi -->
-					<div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="single-about">
-							<p class="lead">
-								<?php echo isset($data['visi_misi']) ? htmlspecialchars($data['visi_misi']) : "Visi dan misi belum tersedia."; ?>
-							</p>
+						<div class="col-md-6  col-sm-6 col-xs-12">
+							<div class="single-about">
+								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
+							</div>
 						</div>
-					</div>
-
-					<!-- Gambar dan Video -->
-					<div class="col-md-4 col-sm-3 col-xs-12 text-center">
-						<div class="image">
-							<?php if (!empty($data['logo'])): ?>
-								<img src="img/<?php echo htmlspecialchars($data['logo']); ?>" alt="Logo" class="img-responsive img-thumbnail" style="max-width: 200px; height: auto;">
-							<?php endif; ?>
-
-							<?php if (!empty($data['youtube'])): ?>
-								<div class="mt-3">
-									<a href="<?php echo htmlspecialchars($data['youtube']); ?>" class="btn btn-danger btn-lg video-popup">
-										<i class="fa fa-play"></i> Tonton Video
-									</a>
-								</div>
-							<?php endif; ?>
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<div class="image">
+								<img src="img/<?php echo $data['logo'];?>" alt="#">
+								<a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-
 		<section id="skill" class="skill section">
 			<div class="container">
 				<div class="row">
