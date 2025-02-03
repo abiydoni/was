@@ -40,10 +40,11 @@
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div class="image">
 								<img src="img/<?php echo $data['logo'];?>" alt="#">
-								<a href="<?php echo htmlspecialchars($data['youtube']); ?>" 
-									class="video-popup mfp-iframe"
-									rel="noopener noreferrer">
-									<i class="fa fa-play"></i>
+								<a href="#" class="btn btn-danger btn-lg video-btn" 
+									data-toggle="modal" 
+									data-target="#videoModal" 
+									data-video-url="https://www.youtube.com/embed/<?php echo htmlspecialchars($data['youtube']); ?>">
+									<i class="fa fa-play"></i> Tonton Video
 								</a>
 							</div>
 						</div>
@@ -103,5 +104,22 @@
 				</div>
 			</div>
 		</section>
-		<?php } ?>
+
+		<!-- Modal untuk Video -->
+		<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="max-width: 80vw; max-height: 80vh; margin: auto;">
+				<div class="modal-content">
+					<div class="modal-body">
+						<!-- Menyesuaikan ukuran iframe -->
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe id="videoIframe" src="" title="Video" allowfullscreen class="embed-responsive-item"></iframe>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php } ?>
 	<?php include'footer.php' ?>
