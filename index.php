@@ -37,22 +37,10 @@
 								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
 							</div>
 						</div>
-						<?php
-						$video_url = $data['uraian'];
-						if (strpos($video_url, "watch?v=") !== false) {
-							$video_url = str_replace("watch?v=", "embed/", $video_url);  // Ubah URL YouTube ke embed
-						}
-						?>
 						<div class="col-md-4 col-sm-4 col-xs-12">
 							<div class="image">
-								<img src="img/<?php echo htmlspecialchars($data['logo']); ?>" alt="#" class="img-responsive img-thumbnail">
-								
-								<a href="#" class="btn btn-danger btn-lg video-btn" 
-								data-toggle="modal" 
-								data-target="#videoModal" 
-								data-video-url="<?php echo htmlspecialchars($video_url); ?>">
-									<i class="fa fa-play"></i> Tonton Video
-								</a>
+								<img src="img/<?php echo $data['logo'];?>" alt="#">
+								<a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
 							</div>
 						</div>
 					</div>
@@ -111,22 +99,5 @@
 				</div>
 			</div>
 		</section>
-
-		<!-- Modal untuk Video -->
-		<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
-			<div class="modal-dialog" style="max-width: 80vw; max-height: 80vh; margin: auto;">
-				<div class="modal-content">
-					<div class="modal-body">
-						<!-- Menyesuaikan ukuran iframe -->
-						<div class="embed-responsive embed-responsive-16by9">
-							<iframe id="videoIframe" src="" title="Video" allowfullscreen class="embed-responsive-item"></iframe>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php } ?>
+		<?php } ?>
 	<?php include'footer.php' ?>
