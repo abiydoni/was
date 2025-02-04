@@ -111,16 +111,26 @@ if (!$data) {
         </form>
     </div>
     <script>
-        // Paksa reload jika pengguna kembali dari history browser
+    function confirmDelete(el) {
+        if (confirm("Apakah benar akan menghapus data ini?")) {
+            fetch(el.href)
+                .then(response => response.text()) // Bisa disesuaikan dengan format respons
+                .then(() => location.reload()); // Reload otomatis setelah penghapusan
+            return false; // Mencegah navigasi langsung
+        }
+        return false; // Mencegah navigasi jika batal
+        }
+
+        function printReport() {
+            window.print(); 
+        }
+
+    // Paksa reload jika pengguna kembali dari history browser
         window.addEventListener("pageshow", function(event) {
             if (event.persisted) {
                 location.reload();
             }
         });
-        function printReport() {
-        window.print(); 
-    }
-
     </script>
 
 </body>
