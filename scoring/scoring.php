@@ -33,8 +33,10 @@ if (!$data) {
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold">Nama Pemain: <?php echo htmlspecialchars($data['nama']); ?></label>
                 <label class="block text-gray-700 font-semibold">Jarak (m): <?php echo htmlspecialchars($data['jarak']); ?>m</label>
+                <button onclick="printReport()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                    Cetak Laporan
+                </button>
             </div>
-            
             <div class="overflow-x-auto">
                 <table class="w-full border-collapse border border-gray-300 text-sm">
                     <thead>
