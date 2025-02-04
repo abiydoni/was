@@ -137,10 +137,14 @@ if (!$data) {
         <table class="w-full border-collapse border border-gray-300 text-sm">
             <thead>
                 <tr class="bg-gray-200">
-                    <th class="border border-gray-300 p-2">No</th>
-                    <th class="border border-gray-300 p-2">Nama</th>
-                    <th class="border border-gray-300 p-2">Jarak (m)</th>
-                    <th class="border border-gray-300 p-2">Total Skor</th>
+                <th class="border border-gray-300 p-2">No</th>
+                    <th class="border border-gray-300 p-2">1</th>
+                    <th class="border border-gray-300 p-2">2</th>
+                    <th class="border border-gray-300 p-2">3</th>
+                    <th class="border border-gray-300 p-2">4</th>
+                    <th class="border border-gray-300 p-2">5</th>
+                    <th class="border border-gray-300 p-2">6</th>
+                    <th class="border border-gray-300 p-2 font-bold">Jumlah</th>
                 </tr>
             </thead>
             <tbody>
