@@ -8,11 +8,6 @@ while ($row = mysqli_fetch_assoc($qry)) {
     $anggota[] = $row;
 }
 
-// Debugging: menampilkan data anggota yang diambil
-// echo "<pre>";
-// print_r($anggota);
-// echo "</pre>";
-
 // Proses form saat disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_agt']);
@@ -45,22 +40,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
         
         <form action="tambah_pemain.php" method="POST">
+            <!-- Input Dropdown untuk memilih kode anggota -->
             <div class="mb-4" x-data="dropdownData()">
-                <label class="block text-gray-700 font-semibold">Nama Pemain</label>
+                <label class="block text-gray-700 font-semibold">Kode Anggota</label>
                 <input type="hidden" name="nama" x-model="selectedKode">
                 <div class="relative">
-                    <input type="text" x-model="search" placeholder="Cari nama..." @focus="open = true" @click.away="open = false"
+                    <input type="text" x-model="search" placeholder="Cari kode atau nama..." @focus="open = true" @click.away="open = false"
                         class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
                     <div class="absolute w-full bg-white border rounded-lg mt-1 max-h-40 overflow-y-auto shadow-md" x-show="open">
                         <template x-for="item in filteredAnggota" :key="item.kode">
                             <div @click="selectItem(item)" class="p-2 cursor-pointer hover:bg-gray-200">
-                                <span x-text="item.nama"></span>
+                                <span x-text="item.kode + ' - ' + item.nama"></span>
                             </div>
                         </template>
                     </div>
                 </div>
             </div>
 
+            <!-- Input Nama Pemain -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold">Nama Pemain</label>
+                <input type="text" name="nama" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan nama pemain">
+            </div>
+
+            <!-- Input Jarak -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold">Jarak (m)</label>
                 <input type="number" name="jarak" required min="0" value="0" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jarak (m)">
@@ -81,10 +84,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 selectedKode: '',
                 anggota: <?php echo json_encode($anggota); ?>, // Data anggota
                 get filteredAnggota() {
-                    return this.anggota.filter(a => a.nama.toLowerCase().includes(this.search.toLowerCase()));
+                    return this.anggota.filter(a => a.kode.toLowerCase().includes(this.search.toLowerCase()) || a.nama.toLowerCase().includes(this.search.toLowerCase()));
                 },
                 selectItem(item) {
-                    this.search = item.nama;
+                    this.search = item.kode + ' - ' + item.nama;
                     this.selectedKode = item.kode;
                     this.open = false;
                 }
