@@ -28,8 +28,6 @@ if (!$data) {
 </head>
 <body class="bg-gray-100 p-4 flex items-center justify-center min-h-screen">
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-4 text-gray-800">Scoring</h2>
-
         <form action="" method="POST">
             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl flex gap-6">
                 <!-- Bagian Kiri: Informasi Pemain -->
