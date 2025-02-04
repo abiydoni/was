@@ -35,6 +35,7 @@
                         <th class="border border-gray-300 p-2">Nama</th>
                         <th class="border border-gray-300 p-2">Sesi</th>
                         <th class="border border-gray-300 p-2">Jarak (m)</th>
+                        <th class="border border-gray-300 p-2">Skor</th>
                         <th class="border border-gray-300 p-2">Aksi</th>
                     </tr>
                 </thead>
@@ -52,6 +53,7 @@
                         </td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['sesi']); ?></td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
+                        <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['skor']); ?></td>
                         <td class="border border-gray-300 p-2 text-center">
                             <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl">
                                 <i class="fas fa-edit"></i>
