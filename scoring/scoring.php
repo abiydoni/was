@@ -24,6 +24,7 @@ if (!$data) {
     <title>Scoring</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link rel="../css/bootstrap.min.css">
 
 </head>
 <body class="bg-gray-100 p-4 flex items-center justify-center min-h-screen">
