@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
                 <input type="hidden" name="kode_anggota" x-model="selectedKode">
                 <div class="relative">
                     <input type="text" x-model="search" placeholder="Cari nama..." @focus="open = true" @click.away="open = false"
-                        class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
                     <div class="absolute w-full bg-white border rounded-lg mt-1 max-h-40 overflow-y-auto shadow-md" x-show="open">
                         <template x-for="item in filteredAnggota" :key="item.kode">
                             <div @click="selectItem(item)" class="p-2 cursor-pointer hover:bg-gray-200">
