@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="POST">
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold">Nama Pemain</label>
-                <input type="text" name="nama" value="<?php echo htmlspecialchars($data['nama']); ?>" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                <input type="text" name="nama" value="<?php echo htmlspecialchars($data['nama']); ?>" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" readonly>
             </div>
 
             <div class="mb-4">

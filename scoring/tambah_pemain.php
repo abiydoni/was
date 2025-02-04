@@ -7,6 +7,23 @@ $anggota = [];
 while ($row = mysqli_fetch_assoc($qry)) {
     $anggota[] = $row;
 }
+
+// Proses form saat disubmit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_agt']);
+    $nama = mysqli_real_escape_string($konek, $_POST['nama']);
+    $jarak = mysqli_real_escape_string($konek, $_POST['jarak']);
+
+    // Query insert data
+    $sql = "INSERT INTO tbl_nama (kode_agt, nama, jarak) VALUES ('$kode_agt', '$nama', '$jarak')";
+    
+    if (mysqli_query($konek, $sql)) {
+        header("Location: index.php?status=success");
+    } else {
+        header("Location: index.php?status=error");
+    }
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +42,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
         <form action="tambah_pemain.php" method="POST">
             <div class="mb-4" x-data="dropdownData()">
                 <label class="block text-gray-700 font-semibold">Nama Pemain</label>
-                <input type="hidden" name="kode_anggota" x-model="selectedKode">
+                <input type="hidden" name="kode_agt" x-model="selectedKode">
                 <div class="relative">
                     <input type="text" x-model="search" placeholder="Cari nama..." @focus="open = true" @click.away="open = false"
                         class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
@@ -41,7 +58,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
 
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold">Jarak (m)</label>
-                <input type="number" name="jarak" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                <input type="number" name="jarak" required min="0" value="0" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jarak (m)">
             </div>
 
             <div class="flex justify-between">
