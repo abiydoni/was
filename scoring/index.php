@@ -90,5 +90,14 @@
             document.getElementById('modal').classList.add('hidden');
         }
     </script>
+    <script>
+        // Paksa reload jika pengguna kembali dari history browser
+        window.addEventListener("pageshow", function(event) {
+            if (event.persisted) {
+                location.reload();
+            }
+        });
+    </script>
+
 </body>
 </html>
