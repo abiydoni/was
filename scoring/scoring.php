@@ -119,8 +119,9 @@ if (!$data) {
             </div>
 
             <div class="flex justify-between mt-4">
-                <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
-                <a href="scoring_edit.php?id=<?php echo base64_encode($data['kode']); ?>" 
+            <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
+            <a href="index.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Selesai</a>
+            <a href="scoring_edit.php?id=<?php echo base64_encode($data['kode']); ?>" 
                     class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 inline-block">
                     Mulai
                 </a>
