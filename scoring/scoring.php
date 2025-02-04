@@ -148,6 +148,17 @@ if (!$data) {
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $grandTotal = 0; // Inisialisasi Grand Total sebelum melakukan loop
+                $qry_skor = mysqli_query($konek, "SELECT * FROM tbl_scoring WHERE kode='$id'");
+                $no = 1;
+
+                if (mysqli_num_rows($qry_skor) > 0) {
+                    while ($row = mysqli_fetch_assoc($qry_skor)) {
+                        $jumlah = $row['s1'] + $row['s2'] + $row['s3'] + $row['s4'] + $row['s5'] + $row['s6'];
+                        $grandTotal += $jumlah; // Menambahkan jumlah setiap row ke grand total
+                        // Lanjutkan proses output tabel
+                ?>
                 <tr>
                     <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
                     <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s1']); ?></td>
@@ -157,11 +168,23 @@ if (!$data) {
                     <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s5']); ?></td>
                     <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s6']); ?></td>
                     <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $jumlah; ?></td>
-                    <tr class="bg-gray-200">
-                        <td colspan="7" class="border border-gray-300 p-2 text-center font-bold">Grand Total</td>
-                        <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
-                        <td></td> <!-- Kolom Aksi dikosongkan -->
-                    </tr>
+                    <td class="border border-gray-300 p-2 text-center">
+                </tr>
+                <?php
+                    }
+                } else {
+                ?>
+                <tr>
+                    <td colspan="8" class="border border-gray-300 p-4 text-center text-gray-600">
+                        Data masih kosong
+                    </td>
+                </tr>
+                <?php } ?>
+                <!-- Grand Total -->
+                <tr class="bg-gray-200">
+                    <td colspan="7" class="border border-gray-300 p-2 text-center font-bold">Grand Total</td>
+                    <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
+                    <td></td> <!-- Kolom Aksi dikosongkan -->
                 </tr>
             </tbody>
         </table>
