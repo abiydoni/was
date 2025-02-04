@@ -1,19 +1,11 @@
 <?php
 include '../koneksi.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = mysqli_real_escape_string($konek, $_POST['nama']);
-    $jarak = mysqli_real_escape_string($konek, $_POST['jarak']);
-
-    // Query insert data
-    $sql = "INSERT INTO tbl_nama (nama, jarak) VALUES ('$nama', '$jarak')";
-    
-    if (mysqli_query($konek, $sql)) {
-        header("Location: index.php?status=success");
-    } else {
-        header("Location: index.php?status=error");
-    }
-    exit();
+// Ambil data anggota dari database
+$qry = mysqli_query($konek, "SELECT kode, nama FROM tbl_anggota");
+$anggota = [];
+while ($row = mysqli_fetch_assoc($qry)) {
+    $anggota[] = $row;
 }
 ?>
 
@@ -24,15 +16,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Pemain</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-gray-100 p-4 flex items-center justify-center min-h-screen">
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
         
         <form action="tambah_pemain.php" method="POST">
-            <div class="mb-4">
+            <div class="mb-4" x-data="{ search: '', selected: '', anggota: <?php echo json_encode($anggota); ?> }">
                 <label class="block text-gray-700 font-semibold">Nama Pemain</label>
-                <input type="text" name="nama" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                <input type="hidden" name="kode_anggota" x-model="selected">
+                <div class="relative">
+                    <input type="text" x-model="search" placeholder="Cari nama..." class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" readonly>
+                    <div class="absolute w-full bg-white border rounded-lg mt-1 max-h-40 overflow-y-auto" x-show="search !== ''">
+                        <template x-for="item in anggota.filter(a => a.nama.toLowerCase().includes(search.toLowerCase()))" :key="item.kode">
+                            <div @click="search = item.nama; selected = item.kode" class="p-2 cursor-pointer hover:bg-gray-200">
+                                <span x-text="item.nama"></span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
             </div>
 
             <div class="mb-4">
