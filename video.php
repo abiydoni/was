@@ -22,8 +22,8 @@
                     $video_url = str_replace("watch?v=", "embed/", $video_url);  // Ubah URL YouTube ke embed
                 }
             ?>
-                <div class="col-md-4 col-sm-6 col-xs-12"> <!-- Responsif untuk perangkat kecil -->
-                    <div class="card shadow-sm border-0">
+                <div class="col-md-4 col-sm-6 col-xs-12 mb-4"> <!-- Responsif untuk perangkat kecil -->
+                    <div class="card shadow-lg rounded" style="border: none;"> <!-- Card dengan shadow dan border melengkung -->
                         <div class="embed-responsive embed-responsive-16by9">
                             <!-- Menampilkan video embed langsung -->
                             <iframe width="100%" height="315" src="<?php echo $video_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -39,3 +39,10 @@
 </section>
 
 <?php include 'footer.php'; ?>
+
+<!-- CSS untuk penyesuaian jarak antar card -->
+<style>
+    .card {
+        margin-bottom: 30px; /* Menambahkan jarak antar card */
+    }
+</style>
