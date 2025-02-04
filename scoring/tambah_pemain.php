@@ -10,11 +10,11 @@ while ($row = mysqli_fetch_assoc($qry)) {
 
 // Proses form saat disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_agt']);
-    $nama = mysqli_real_escape_string($konek, $_POST['nama']);
-    $jarak = mysqli_real_escape_string($konek, $_POST['jarak']);
+    $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_anggota']); // Kode anggota yang dipilih
+    $nama = mysqli_real_escape_string($konek, $_POST['nama']); // Nama pemain yang diinput
+    $jarak = mysqli_real_escape_string($konek, $_POST['jarak']); // Jarak yang diinput
 
-    // Query insert data
+    // Query untuk memasukkan data ke dalam tabel tbl_nama
     $sql = "INSERT INTO tbl_nama (kode_agt, nama, jarak) VALUES ('$kode_agt', '$nama', '$jarak')";
     
     if (mysqli_query($konek, $sql)) {
@@ -40,21 +40,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
         
         <form action="tambah_pemain.php" method="POST">
-            <!-- Input Dropdown untuk memilih kode anggota -->
+            <!-- Dropdown dengan pencarian untuk memilih anggota -->
             <div class="mb-4" x-data="dropdownData()">
-                <label class="block text-gray-700 font-semibold">Kode Anggota</label>
-                <input type="hidden" name="nama" x-model="selectedKode">
+                <label class="block text-gray-700 font-semibold">Nama Pemain</label>
+                <input type="hidden" name="kode_anggota" x-model="selectedKode">
                 <div class="relative">
-                    <input type="text" name='nama' x-model="search" placeholder="Cari kode atau nama..." @focus="open = true" @click.away="open = false"
+                    <input type="text" x-model="search" placeholder="Cari nama..." @focus="open = true" @click.away="open = false"
                         class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
                     <div class="absolute w-full bg-white border rounded-lg mt-1 max-h-40 overflow-y-auto shadow-md" x-show="open">
                         <template x-for="item in filteredAnggota" :key="item.kode">
                             <div @click="selectItem(item)" class="p-2 cursor-pointer hover:bg-gray-200">
-                                <span x-text="item.kode + ' - ' + item.nama"></span>
+                                <span x-text="item.nama"></span>
                             </div>
                         </template>
                     </div>
                 </div>
+            </div>
+
+            <!-- Input Nama Pemain (diambil dari pilihan anggota) -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold">Nama Pemain</label>
+                <input type="text" name="nama" x-model="selectedNama" required readonly class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Nama Pemain" />
             </div>
 
             <!-- Input Jarak -->
@@ -76,13 +82,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 search: '',
                 open: false,
                 selectedKode: '',
-                anggota: <?php echo json_encode($anggota); ?>, // Data anggota
+                selectedNama: '',
+                anggota: <?php echo json_encode($anggota); ?>,
                 get filteredAnggota() {
-                    return this.anggota.filter(a => a.kode.toLowerCase().includes(this.search.toLowerCase()) || a.nama.toLowerCase().includes(this.search.toLowerCase()));
+                    return this.anggota.filter(a => a.nama.toLowerCase().includes(this.search.toLowerCase()));
                 },
                 selectItem(item) {
-                    this.search = item.kode + ' - ' + item.nama;
+                    this.search = item.nama;
                     this.selectedKode = item.kode;
+                    this.selectedNama = item.nama;
                     this.open = false;
                 }
             };
