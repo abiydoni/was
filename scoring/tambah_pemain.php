@@ -13,11 +13,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_agt']);
     $nama = mysqli_real_escape_string($konek, $_POST['nama']);
     $jarak = mysqli_real_escape_string($konek, $_POST['jarak']);
+    $sesi = intval($_POST['sesi']); // Ambil jumlah sesi
 
-    // Query insert data
-    $sql = "INSERT INTO tbl_nama (kode_agt, nama, jarak) VALUES ('$kode_agt', '$nama', '$jarak')";
-    
-    if (mysqli_query($konek, $sql)) {
+    if ($sesi < 1) {
+        header("Location: tambah_pemain.php?status=error_sesi");
+        exit();
+    }
+
+    $success = true;
+    for ($i = 1; $i <= $sesi; $i++) {
+        $sql = "INSERT INTO tbl_nama (kode_agt, nama, jarak, sesi) VALUES ('$kode_agt', '$nama', '$jarak', '$i')";
+        if (!mysqli_query($konek, $sql)) {
+            $success = false;
+            break;
+        }
+    }
+
+    if ($success) {
         header("Location: index.php?status=success");
     } else {
         header("Location: index.php?status=error");
@@ -66,6 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="text-red-500 text-sm mt-1" x-show="errorJarak">Jarak tidak boleh 0!</p>
             </div>
 
+            <!-- Input Sesi -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold">Berapa Sesi?</label>
+                <input type="number" name="sesi" x-model="sesi" min="1" value="1" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jumlah sesi">
+                <p class="text-red-500 text-sm mt-1" x-show="errorSesi">Sesi minimal 1!</p>
+            </div>
+
             <!-- Tombol Aksi -->
             <div class="flex justify-between">
                 <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Batal</a>
@@ -82,8 +101,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 selectedKode: '',
                 selectedNama: '',
                 jarak: 0,
+                sesi: 1,
                 errorNama: false,
                 errorJarak: false,
+                errorSesi: false,
                 anggota: <?php echo json_encode($anggota); ?>,
                 
                 get filteredAnggota() {
@@ -101,14 +122,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 validateAndSubmit(event) {
                     this.errorNama = !this.anggota.some(a => a.nama.toLowerCase() === this.search.toLowerCase());
                     this.errorJarak = this.jarak == 0;
+                    this.errorSesi = this.sesi < 1;
 
-                    if (this.errorNama) {
-                        // alert("Nama pemain harus sesuai dengan daftar yang ada!");
-                    } else if (this.errorJarak) {
-                        // alert("Jarak tidak boleh 0!");
-                    } else {
-                        event.target.submit();
+                    if (this.errorNama || this.errorJarak || this.errorSesi) {
+                        return;
                     }
+
+                    event.target.submit();
                 }
             };
         }
