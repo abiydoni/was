@@ -75,8 +75,8 @@ if (!$data) {
                                 <!-- <a href="scoring_hapus.php?id=<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
                                     <i class="fas fa-trash-alt"></i>
                                 </a> -->
-                                <button onclick="openModal('<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>')" class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl">
-                                    <i class="fas fa-trash-alt"></i>
+                                <button onclick="openModal('<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>', '<?php echo htmlspecialchars($data['nama']); ?>')" class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl">
+                                <i class="fas fa-trash-alt"></i>
                                 </button>
                             </td>
                         </tr>
@@ -120,9 +120,9 @@ if (!$data) {
         </form>
     </div>
     <script>
-        function openModal(id, kode) {
-            document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + kode + '?';
-            document.getElementById('deleteLink').href = "scoring_hapus.php?id=" + id;
+        function openModal(nom, kode, nama) {
+            document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + nama + '?';
+            document.getElementById('deleteLink').href = "scoring_hapus.php?id=" + nom;
             document.getElementById('modal').classList.remove('hidden');
         }
 
