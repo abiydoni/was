@@ -110,6 +110,29 @@ if (!$data) {
             </div>
         </form>
     </div>
+    <!-- Tabel Laporan -->
+    <div id="report-table" style="display:none;">
+    <h2 class="text-center text-2xl font-bold mb-4">Laporan Skor</h2>
+    <table class="w-full border-collapse border border-gray-300 text-sm">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 p-2">No</th>
+                <th class="border border-gray-300 p-2">Nama</th>
+                <th class="border border-gray-300 p-2">Jarak (m)</th>
+                <th class="border border-gray-300 p-2">Total Skor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border border-gray-300 p-2 text-center">1</td>
+                <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['nama']); ?></td>
+                <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
+                <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
     <script>
     function confirmDelete(el) {
         if (confirm("Apakah benar akan menghapus data ini?")) {
@@ -122,8 +145,10 @@ if (!$data) {
         }
 
         function printReport() {
-            window.print(); 
-        }
+        document.getElementById("report-table").style.display = "block";
+        window.print();
+        document.getElementById("report-table").style.display = "none";
+    }
 
     // Paksa reload jika pengguna kembali dari history browser
         window.addEventListener("pageshow", function(event) {
