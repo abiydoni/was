@@ -175,5 +175,13 @@ $total_tidak_aktif = $data_status['total_tidak_aktif'] ?? 0;
   // Mengatur interval untuk berpindah halaman setiap 10 detik
   setInterval(loadTablePage, 10000);
 </script>
+<script>
+    // Paksa reload jika pengguna kembali dari history browser
+    window.addEventListener("pageshow", function(event) {
+        if (event.persisted) {
+            location.reload();
+        }
+    });
+</script>
 
 <?php include 'footer.php'; ?>
