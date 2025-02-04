@@ -31,12 +31,33 @@ if (!$data) {
         <h2 class="text-2xl font-bold mb-4 text-gray-800">Scoring</h2>
 
         <form action="" method="POST">
-            <div class="mb-4">
-                <label class="block text-gray-700 font-semibold">Nama Pemain: <?php echo htmlspecialchars($data['nama']); ?></label>
-                <label class="block text-gray-700 font-semibold">Sesi: <?php echo htmlspecialchars($data['sesi']); ?> Jarak (m): <?php echo htmlspecialchars($data['jarak']); ?>m</label>
-                <button onclick="printReport()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-                    Cetak Laporan
-                </button>
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl flex gap-6">
+                <!-- Bagian Kiri: Informasi Pemain -->
+                <div class="w-2/3">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">Scoring</h2>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold">Nama Pemain:</label>
+                        <p class="text-lg font-semibold text-blue-600"><?php echo htmlspecialchars($data['nama']); ?></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-semibold">Jarak:</label>
+                        <p class="text-lg font-semibold text-green-600"><?php echo htmlspecialchars($data['jarak']); ?> m</p>
+                    </div>
+
+                    <button onclick="printReport()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                        Cetak Laporan
+                    </button>
+                </div>
+
+                <!-- Bagian Kanan: Card Sesi -->
+                <div class="w-1/3 flex items-center justify-center">
+                    <div class="bg-blue-500 text-white p-6 rounded-2xl shadow-xl w-full text-center">
+                        <p class="text-xl font-semibold">Sesi</p>
+                        <p class="text-4xl font-bold mt-2"><?php echo htmlspecialchars($data['sesi']); ?></p>
+                    </div>
+                </div>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full border-collapse border border-gray-300 text-sm">
