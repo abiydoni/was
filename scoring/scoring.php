@@ -24,6 +24,24 @@ if (!$data) {
     <title>Scoring</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #report-table, #report-table * {
+                visibility: visible;
+            }
+            #report-table {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+    </style>
+
 </head>
 <body class="bg-gray-100 p-4 flex items-center justify-center min-h-screen">
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
@@ -112,25 +130,25 @@ if (!$data) {
     </div>
     <!-- Tabel Laporan -->
     <div id="report-table" style="display:none;">
-    <h2 class="text-center text-2xl font-bold mb-4">Laporan Skor</h2>
-    <table class="w-full border-collapse border border-gray-300 text-sm">
-        <thead>
-            <tr class="bg-gray-200">
-                <th class="border border-gray-300 p-2">No</th>
-                <th class="border border-gray-300 p-2">Nama</th>
-                <th class="border border-gray-300 p-2">Jarak (m)</th>
-                <th class="border border-gray-300 p-2">Total Skor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="border border-gray-300 p-2 text-center">1</td>
-                <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['nama']); ?></td>
-                <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
-                <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
-            </tr>
-        </tbody>
-    </table>
+        <h2 class="text-center text-2xl font-bold mb-4">Laporan Skor</h2>
+        <table class="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-300 p-2">No</th>
+                    <th class="border border-gray-300 p-2">Nama</th>
+                    <th class="border border-gray-300 p-2">Jarak (m)</th>
+                    <th class="border border-gray-300 p-2">Total Skor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 p-2 text-center">1</td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['nama']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script>
@@ -145,10 +163,10 @@ if (!$data) {
         }
 
         function printReport() {
-        document.getElementById("report-table").style.display = "block";
-        window.print();
-        document.getElementById("report-table").style.display = "none";
-    }
+            document.getElementById("report-table").style.display = "block";
+            window.print();
+            document.getElementById("report-table").style.display = "none";
+        }
 
     // Paksa reload jika pengguna kembali dari history browser
         window.addEventListener("pageshow", function(event) {
