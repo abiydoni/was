@@ -74,7 +74,7 @@ if (!$data) {
                             <td class="border border-gray-300 p-2 text-center">
                             <a href="scoring_hapus.php?id=<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>" 
                                 class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
-                                onclick="return confirm('Apakah benar akan menghapus data ini?');">
+                                onclick="return confirmDelete(this);">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                             </td>
@@ -108,5 +108,17 @@ if (!$data) {
             </div>
         </form>
     </div>
+    <script>
+    function confirmDelete(el) {
+        if (confirm("Apakah benar akan menghapus data ini?")) {
+            fetch(el.href)
+                .then(response => response.text()) // Bisa disesuaikan dengan format respons
+                .then(() => location.reload()); // Reload otomatis setelah penghapusan
+            return false; // Mencegah navigasi langsung
+        }
+        return false; // Mencegah navigasi jika batal
+        }
+    </script>
+
 </body>
 </html>
