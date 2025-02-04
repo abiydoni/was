@@ -28,22 +28,19 @@ if (!$data) {
 </head>
 <body class="bg-gray-100 p-4 flex items-center justify-center min-h-screen">
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-gray-800">Scoring</h2>
         <form action="" method="POST">
             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl flex gap-6">
                 <!-- Bagian Kiri: Informasi Pemain -->
                 <div class="w-2/3">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-800">Scoring</h2>
-
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold">Nama Pemain:</label>
                         <p class="text-lg font-semibold text-blue-600"><?php echo htmlspecialchars($data['nama']); ?></p>
                     </div>
-
                     <div class="mb-4">
                         <label class="block text-gray-700 font-semibold">Jarak:</label>
                         <p class="text-lg font-semibold text-green-600"><?php echo htmlspecialchars($data['jarak']); ?> m</p>
                     </div>
-
                     <button onclick="printReport()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
                         Cetak Laporan
                     </button>
@@ -53,7 +50,7 @@ if (!$data) {
                 <div class="w-1/3 flex items-center justify-center">
                     <div class="bg-blue-500 text-white p-6 rounded-2xl shadow-xl w-full text-center">
                         <p class="text-xl font-semibold">Sesi</p>
-                        <p class="text-4xl font-bold mt-2"><?php echo htmlspecialchars($data['sesi']); ?></p>
+                        <p class="text-5xl font-bold mt-2"><?php echo htmlspecialchars($data['sesi']); ?></p>
                     </div>
                 </div>
             </div>
