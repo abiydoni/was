@@ -8,6 +8,11 @@ while ($row = mysqli_fetch_assoc($qry)) {
     $anggota[] = $row;
 }
 
+// Debugging: menampilkan data anggota yang diambil
+// echo "<pre>";
+// print_r($anggota);
+// echo "</pre>";
+
 // Proses form saat disubmit
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_agt']);
@@ -42,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="tambah_pemain.php" method="POST">
             <div class="mb-4" x-data="dropdownData()">
                 <label class="block text-gray-700 font-semibold">Nama Pemain</label>
-                <input type="hidden" name="kode_agt" x-model="selectedKode">
+                <input type="hidden" name="nama" x-model="selectedKode">
                 <div class="relative">
                     <input type="text" x-model="search" placeholder="Cari nama..." @focus="open = true" @click.away="open = false"
                         class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
@@ -74,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 search: '',
                 open: false,
                 selectedKode: '',
-                anggota: <?php echo json_encode($anggota); ?>,
+                anggota: <?php echo json_encode($anggota); ?>, // Data anggota
                 get filteredAnggota() {
                     return this.anggota.filter(a => a.nama.toLowerCase().includes(this.search.toLowerCase()));
                 },
