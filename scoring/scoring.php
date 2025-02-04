@@ -131,6 +131,9 @@ if (!$data) {
     <!-- Tabel Laporan -->
     <div id="report-table" style="display:none;">
         <h2 class="text-center text-2xl font-bold mb-4">Laporan Skor</h2>
+        <label class="block text-gray-700 font-semibold">Nama Pemain: <?php echo htmlspecialchars($data['nama']); ?></label>
+        <label class="block text-gray-700 font-semibold">Jarak (m): <?php echo htmlspecialchars($data['jarak']); ?>m</label>
+
         <table class="w-full border-collapse border border-gray-300 text-sm">
             <thead>
                 <tr class="bg-gray-200">
@@ -142,10 +145,19 @@ if (!$data) {
             </thead>
             <tbody>
                 <tr>
-                    <td class="border border-gray-300 p-2 text-center">1</td>
-                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['nama']); ?></td>
-                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
-                    <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s1']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s2']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s3']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s4']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s5']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s6']); ?></td>
+                    <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $jumlah; ?></td>
+                    <tr class="bg-gray-200">
+                        <td colspan="7" class="border border-gray-300 p-2 text-center font-bold">Grand Total</td>
+                        <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
+                        <td></td> <!-- Kolom Aksi dikosongkan -->
+                    </tr>
                 </tr>
             </tbody>
         </table>
