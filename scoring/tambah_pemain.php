@@ -1,3 +1,31 @@
+<?php
+include '../koneksi.php';
+
+// Ambil data anggota dari database
+$qry = mysqli_query($konek, "SELECT kode, nama FROM tbl_anggota");
+$anggota = [];
+while ($row = mysqli_fetch_assoc($qry)) {
+    $anggota[] = $row;
+}
+
+// Proses form saat disubmit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $kode_agt = mysqli_real_escape_string($konek, $_POST['kode_agt']);
+    $nama = mysqli_real_escape_string($konek, $_POST['nama']);
+    $jarak = mysqli_real_escape_string($konek, $_POST['jarak']);
+
+    // Query insert data
+    $sql = "INSERT INTO tbl_nama (kode_agt, nama, jarak) VALUES ('$kode_agt', '$nama', '$jarak')";
+    
+    if (mysqli_query($konek, $sql)) {
+        header("Location: index.php?status=success");
+    } else {
+        header("Location: index.php?status=error");
+    }
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
