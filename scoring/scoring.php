@@ -33,7 +33,7 @@ if (!$data) {
         <form action="" method="POST">
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold">Nama Pemain: <?php echo htmlspecialchars($data['nama']); ?></label>
-                <label class="block text-gray-700 font-semibold">Jarak (m): <?php echo htmlspecialchars($data['jarak']); ?>m</label>
+                <label class="block text-gray-700 font-semibold">Sesi: <?php echo htmlspecialchars($data['sesi']); ?> Jarak (m): <?php echo htmlspecialchars($data['jarak']); ?>m</label>
                 <button onclick="printReport()" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
                     Cetak Laporan
                 </button>

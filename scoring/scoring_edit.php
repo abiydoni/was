@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="POST">
             <div class="mb-4">
                 <a href="#" class="text-gray-500">Nama Pemain: <?php echo htmlspecialchars($data_nama['nama']); ?></a>
-                <a href="#" class="text-gray-500">, Jarak (m): <?php echo htmlspecialchars($data_nama['jarak']); ?>m</a>
+                <a href="#" class="text-gray-500">Sesi: <?php echo htmlspecialchars($data['sesi']); ?> Jarak (m): <?php echo htmlspecialchars($data_nama['jarak']); ?>m</a>
             </div>
 
             <div class="flex flex-wrap gap-4 justify-center">
