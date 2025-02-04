@@ -23,14 +23,15 @@ while ($row = mysqli_fetch_assoc($qry)) {
         <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
         
         <form action="tambah_pemain.php" method="POST">
-            <div class="mb-4" x-data="{ search: '', selected: '', anggota: <?php echo json_encode($anggota); ?> }">
+            <div class="mb-4" x-data="dropdownData()">
                 <label class="block text-gray-700 font-semibold">Nama Pemain</label>
-                <input type="hidden" name="kode_anggota" x-model="selected">
+                <input type="hidden" name="kode_anggota" x-model="selectedKode">
                 <div class="relative">
-                    <input type="text" x-model="search" placeholder="Cari nama..." class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" readonly>
-                    <div class="absolute w-full bg-white border rounded-lg mt-1 max-h-40 overflow-y-auto" x-show="search !== ''">
-                        <template x-for="item in anggota.filter(a => a.nama.toLowerCase().includes(search.toLowerCase()))" :key="item.kode">
-                            <div @click="search = item.nama; selected = item.kode" class="p-2 cursor-pointer hover:bg-gray-200">
+                    <input type="text" x-model="search" placeholder="Cari nama..." @focus="open = true" @click.away="open = false"
+                        class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" readonly>
+                    <div class="absolute w-full bg-white border rounded-lg mt-1 max-h-40 overflow-y-auto shadow-md" x-show="open">
+                        <template x-for="item in filteredAnggota" :key="item.kode">
+                            <div @click="selectItem(item)" class="p-2 cursor-pointer hover:bg-gray-200">
                                 <span x-text="item.nama"></span>
                             </div>
                         </template>
@@ -49,5 +50,24 @@ while ($row = mysqli_fetch_assoc($qry)) {
             </div>
         </form>
     </div>
+
+    <script>
+        function dropdownData() {
+            return {
+                search: '',
+                open: false,
+                selectedKode: '',
+                anggota: <?php echo json_encode($anggota); ?>,
+                get filteredAnggota() {
+                    return this.anggota.filter(a => a.nama.toLowerCase().includes(this.search.toLowerCase()));
+                },
+                selectItem(item) {
+                    this.search = item.nama;
+                    this.selectedKode = item.kode;
+                    this.open = false;
+                }
+            };
+        }
+    </script>
 </body>
 </html>
