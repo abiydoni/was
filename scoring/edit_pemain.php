@@ -17,10 +17,10 @@ if (!$data) {
 
 // Jika tombol Simpan ditekan
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = mysqli_real_escape_string($konek, $_POST['nama']);
+    // $nama = mysqli_real_escape_string($konek, $_POST['nama']);
     $jarak = mysqli_real_escape_string($konek, $_POST['jarak']);
 
-    $sql = "UPDATE tbl_nama SET nama='$nama', jarak='$jarak' WHERE kode='$id'";
+    $sql = "UPDATE tbl_nama SET jarak='$jarak' WHERE kode='$id'";
 
     if (mysqli_query($konek, $sql)) {
         header("Location: index.php?status=updated");
@@ -49,10 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="nama" value="<?php echo htmlspecialchars($data['nama']); ?>" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" readonly>
             </div>
 
+            <!-- Input Jarak -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold">Jarak (m)</label>
-                <input type="number" name="jarak" value="<?php echo htmlspecialchars($data['jarak']); ?>" required class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                <input type="number" name="jarak" x-model="jarak" min="0" value="<?php echo htmlspecialchars($data['jarak']); ?>" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jarak (m)">
+                <p class="text-red-500 text-sm mt-1" x-show="errorJarak">Jarak tidak boleh 0!</p>
             </div>
+
 
             <div class="flex justify-between">
                 <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Batal</a>
@@ -60,5 +63,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </div>
+    <script>
+        function dropdownData() {
+            return {
+                jarak: 0,
+                errorJarak: false,
+                validateAndSubmit(event) {
+                    this.errorJarak = this.jarak == 0;
+                    if (this.errorJarak) {
+                        // alert("Jarak tidak boleh 0!");
+                    } else {
+                        event.target.submit();
+                    }
+                }
+            };
+        }
+    </script>
 </body>
 </html>
