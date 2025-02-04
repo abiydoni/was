@@ -1,11 +1,13 @@
 <?php include 'header.php'; ?>
 <title>Video</title>
 
-<section id="story" class="story section">
-	<div class="container">
-        <div class="row text-center mb-4">
-            <div class="col-12">
-                <h1 class="fw-bold">VIDEO</h1>
+<section id="latest-works" class="latest-works">
+    <div class="container section">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <h2>My <span>VIDEO</span></h2>
+                </div>
             </div>
         </div>
         <div class="row"> <!-- Mengatur jarak antar kolom -->
