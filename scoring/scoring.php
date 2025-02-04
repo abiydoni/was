@@ -72,9 +72,11 @@ if (!$data) {
                             <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s6']); ?></td>
                             <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $jumlah; ?></td>
                             <td class="border border-gray-300 p-2 text-center">
-                                <a href="scoring_hapus.php?id=<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                            <a href="scoring_hapus.php?id=<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>" 
+                                class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
+                                onclick="return confirm('Apakah benar akan menghapus data ini?');">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
                             </td>
                         </tr>
                         <?php
