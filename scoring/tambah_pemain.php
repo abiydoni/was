@@ -103,9 +103,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     this.errorJarak = this.jarak == 0;
 
                     if (this.errorNama) {
-                        alert("Nama pemain harus sesuai dengan daftar yang ada!");
+                        // alert("Nama pemain harus sesuai dengan daftar yang ada!");
                     } else if (this.errorJarak) {
-                        alert("Jarak tidak boleh 0!");
+                        // alert("Jarak tidak boleh 0!");
                     } else {
                         event.target.submit();
                     }
