@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     const match = this.anggota.some(a => a.nama.toLowerCase() === this.search.toLowerCase());
                     if (!match) {
                         this.errorNama = true;
-                        alert("Nama pemain harus sesuai dengan daftar yang ada!");
+                        // alert("Nama pemain harus sesuai dengan daftar yang ada!");
                     } else {
                         event.target.submit();
                     }
