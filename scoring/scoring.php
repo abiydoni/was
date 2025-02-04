@@ -72,12 +72,9 @@ if (!$data) {
                             <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($row['s6']); ?></td>
                             <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $jumlah; ?></td>
                             <td class="border border-gray-300 p-2 text-center">
-                                <!-- <a href="scoring_hapus.php?id=<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                                <a href="scoring_hapus.php?id=<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
                                     <i class="fas fa-trash-alt"></i>
-                                </a> -->
-                                <button onclick="openModal('<?php echo base64_encode($row['nom'] . ',' . $data['kode']); ?>', '<?php echo htmlspecialchars($data['nama']); ?>')" class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl">
-                                <i class="fas fa-trash-alt"></i>
-                                </button>
+                                </a>
                             </td>
                         </tr>
                         <?php
@@ -99,16 +96,6 @@ if (!$data) {
                     </tbody>
                 </table>
             </div>
-            <!-- Modal Konfirmasi Hapus -->
-            <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
-                <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-                    <h5 id="modal-message" class="text-lg font-bold text-gray-800"></h5>
-                    <div class="mt-4 flex justify-end">
-                        <button onclick="closeModal()" class="bg-gray-300 text-gray-700 hover:bg-gray-400 px-4 py-2 rounded-lg mr-2">Batal</button>
-                        <a id="deleteLink" href="#" class="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded-lg">Hapus</a>
-                    </div>
-                </div>
-            </div>
 
             <div class="flex justify-between mt-4">
                 <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
@@ -119,17 +106,5 @@ if (!$data) {
             </div>
         </form>
     </div>
-    <script>
-        function openModal(nom, kode, nama) {
-            document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + nama + '?';
-            document.getElementById('deleteLink').href = "scoring_hapus.php?id=" + nom;
-            document.getElementById('modal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
-        }
-    </script>
-
 </body>
 </html>
