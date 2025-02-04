@@ -1,8 +1,8 @@
 <?php include 'header.php'; ?>
 <title>Video</title>
 
-<section id="about" class="service section">
-    <div class="container ">
+<section id="story" class="story section">
+	<div class="container">
         <div class="row text-center mb-4">
             <div class="col-12">
                 <h1 class="fw-bold">VIDEO</h1>
