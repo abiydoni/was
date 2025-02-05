@@ -8,13 +8,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <link rel="manifest" href="manifest.json">
 </head>
-<body class="bg-gray-100 p-4">
+<body class="bg-gray-100 p-2">
     <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-4">
             <h3 class="text-xl font-bold text-gray-800">List Pemain</h3>
             <a href="tambah_pemain.php" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">
                 <i class="fas fa-plus"></i> Tambah Pemain
             </a>
+            <a href="../index.php" class="text-blue-500 hover:text-blue-700"><i class="fa fa-bullseye mr-2"></i> https://was.appsbee.my.id</a>
         </div>
         <h5 class="font-bold mb-4 text-gray-800"><?php echo date('l, d F Y'); ?></h5>
 
@@ -77,12 +78,12 @@
             </table>
         </div>
         <br>
-        <div class="mt-4">
+        <!-- <div class="mt-4">
             <a href="../service.php" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 inline-flex items-center">
                 <i class="fa fa-bullseye mr-2"></i> Keluar
             </a>
         </div>
-
+ -->
     </div>
 
     <!-- Modal Konfirmasi Hapus -->
