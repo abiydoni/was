@@ -17,10 +17,10 @@
         <div class="flex items-center justify-between mb-4">
             <h5 class="font-bold mb-4 text-gray-800"><?php echo date('l, d F Y'); ?></h5>
             <div class="flex items-center space-x-2 ml-auto">
-                <a href="tambah_pemain.php" class="bg-blue-500 text-white text-xs px-3 py-2 rounded-lg shadow hover:bg-blue-600">
+                <a href="tambah_pemain.php" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">
                     <i class="fas fa-plus"></i>
                 </a>
-                <a href="laporan.php?updated=<?php echo time(); ?>" class="bg-green-500 text-white text-xs px-3 py-2 rounded-lg shadow hover:bg-green-600">
+                <a href="laporan.php?updated=<?php echo time(); ?>" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow hover:bg-green-600">
                     <i class="far fa-clipboard"></i>
                 </a>
             </div>
