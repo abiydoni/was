@@ -1,0 +1,22 @@
+{
+  "name": "Scoring-WAS",
+  "short_name": "Scoring-WAS",
+  "description": "Scoring Apps Panahan",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "../img/was_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "../img/logo_was.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
