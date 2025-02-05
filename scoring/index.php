@@ -10,7 +10,9 @@
 </head>
 <body class="bg-gray-100 p-2">
     <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-lg">
-        <a href="../index.php" class="text-blue-500 hover:text-blue-700"><i class="fa fa-bullseye mr-2"></i>https://was.appsbee.my.id</a>
+        <a href="https://was.appsbee.my.id" class="text-sm text-blue-500 hover:text-blue-700" target="_blank">
+            <i class="fa fa-bullseye mr-2"></i>was.appsbee.my.id
+        </a>
         <h3 class="text-xl font-bold text-gray-800">List Pemain</h3>
         <div class="flex justify-between items-center mb-4">
             <h5 class="font-bold mb-4 text-gray-800"><?php echo date('l, d F Y'); ?></h5>
