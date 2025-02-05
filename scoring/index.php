@@ -106,14 +106,14 @@
             document.getElementById('modal').classList.add('hidden');
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Paksa reload jika pengguna kembali dari history browser
-            window.addEventListener("pageshow", function(event) {
-                if (event.persisted) {
-                    location.reload();
-                }
-            });
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('updated')) {
+                loadTable();  // Update data langsung setelah kembali ke index.php
+                window.history.replaceState({}, document.title, "index.php"); // Hapus parameter dari URL agar tidak trigger ulang saat refresh
+            }
         });
     </script>
+
 </body>
 </html>

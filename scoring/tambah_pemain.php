@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($success) {
-        header("Location: index.php?status=success");
+        header("Location: index.php?updated=1");
     } else {
         header("Location: index.php?status=error");
     }

@@ -169,7 +169,9 @@ if (!$data) {
                 .then(result => {
                     if (result === "success") {
                         alert("Scoring berhasil disimpan!");
-                        window.location.href = "index.php";
+                        // window.location.href = "index.php";
+                        header("Location: index.php?updated=1");
+                        exit();
                     } else {
                         alert("Terjadi kesalahan, silakan coba lagi.");
                     }
