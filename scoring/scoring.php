@@ -119,7 +119,7 @@ if (!$data) {
             </div>
 
             <div class="flex justify-between mt-4">
-                <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
+                <a href="index.php?updated=1" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
                 <button type="button" 
                     onclick="<?php echo ($grandTotal > 0) ? "confirmFinish('" . base64_encode($data['kode']) . "')" : "return false;"; ?>" 
                     class="px-4 py-2 rounded-lg <?php echo ($grandTotal > 0) ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-gray-300 text-gray-500 opacity-50 cursor-not-allowed'; ?>"
