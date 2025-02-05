@@ -32,7 +32,7 @@
 								<h2>Tentang <span>Saya</span></h2>
 							</div>
 						</div>
-						<div class="col-md-6  col-sm-6 col-xs-12">
+						<div class="col-md-7  col-sm-7 col-xs-12">
 							<div class="single-about">
 								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
 							</div>
