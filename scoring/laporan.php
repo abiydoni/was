@@ -13,7 +13,7 @@
         <h3 class="text-xl font-bold text-gray-800">List Pemain</h3>
         <div class="flex justify-between items-center mb-4">
             <h5 class="font-bold mb-4 text-gray-800"><?php echo date('l, d F Y'); ?></h5>
-            <a href="laporan.php" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow hover:bg-green-600">
+            <a href="laporan.php" class="bg-green-500 text-white text-xs px-3 py-2 rounded-lg shadow hover:bg-green-600">
                 <i class="fas fa-print"></i>
             </a>
         </div>
