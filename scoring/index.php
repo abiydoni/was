@@ -29,8 +29,9 @@
 
         <div class="overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300 text-sm">
+                <!-- Tambahkan efek hover dan zebra stripes -->
                 <thead>
-                    <tr class="bg-gray-200">
+                    <tr class="bg-gray-200 text-gray-700">
                         <th class="border border-gray-300 p-2">No</th>
                         <th class="border border-gray-300 p-2">Nama</th>
                         <th class="border border-gray-300 p-2">Sesi</th>
@@ -46,7 +47,7 @@
                     $no = 1;
                     while ($data = mysqli_fetch_array($qry)) {
                     ?>
-                    <tr>
+                    <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
                         <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
                         <td class="border border-gray-300 p-2">
                             <a href="scoring.php?id=<?php echo base64_encode($data['kode']); ?>" class="text-blue-500 hover:text-blue-700"><?php echo htmlspecialchars($data['nama']); ?></a>
@@ -68,7 +69,11 @@
             </table>
         </div>
         <br>
-		<a href="../service.php"><i class="fa fa-bullseye text-red-500"></i> Keluar</a>
+        <div class="mt-4">
+            <a href="../service.php" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 inline-flex items-center">
+                <i class="fa fa-bullseye mr-2"></i> Keluar
+            </a>
+        </div>
 
     </div>
 
@@ -93,15 +98,15 @@
         function closeModal() {
             document.getElementById('modal').classList.add('hidden');
         }
-    </script>
-    <script>
-        // Paksa reload jika pengguna kembali dari history browser
-        window.addEventListener("pageshow", function(event) {
-            if (event.persisted) {
-                location.reload();
-            }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Paksa reload jika pengguna kembali dari history browser
+            window.addEventListener("pageshow", function(event) {
+                if (event.persisted) {
+                    location.reload();
+                }
+            });
         });
     </script>
-
 </body>
 </html>
