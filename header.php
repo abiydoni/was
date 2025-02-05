@@ -58,10 +58,10 @@
 										<li><a href="index.php">Beranda</a></li>
 										<li><a href="service.php">Layanan</a></li>
 										<li><a href="video.php">Video</a></li>
-										<li><a href="jadwal.php">Jadwal Terbaru</a></li>
+										<li><a href="jadwal.php?updated=<?php echo time(); ?>">Jadwal Terbaru</a></li>
 										<li><a href="galeri.php">Galeri</a></li>
 										<li><a href="artikel.php">Artikel</a></li>
-										 <li><a href="anggota.php">Anggota</a></li> 
+										 <li><a href="anggota.php?updated=<?php echo time(); ?>">Anggota</a></li> 
 										<li><a href="contact.php">Contact</a></li>
 										<li><a href="admin/index.php">Login</a></li>
 									</ul>

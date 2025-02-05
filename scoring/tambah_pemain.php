@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($success) {
-        header("Location: index.php?updated=1");
+        header("Location: index.php?status=success");
     } else {
         header("Location: index.php?status=error");
     }
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Tombol Aksi -->
             <div class="flex justify-between">
-                <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Batal</a>
+                <a href="index.php?updated=<?php echo time(); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Batal</a>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Simpan</button>
             </div>
         </form>
