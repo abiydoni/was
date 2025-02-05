@@ -104,7 +104,6 @@ if (!$data) {
                         <tr class="bg-gray-200">
                             <td colspan="7" class="border border-gray-300 p-2 text-center font-bold">Grand Total</td>
                             <td class="border border-gray-300 p-2 text-center font-bold"><?php echo $grandTotal; ?></td>
-                            <td></td> <!-- Kolom Aksi dikosongkan -->
                         </tr>
                     </tbody>
                 </table>

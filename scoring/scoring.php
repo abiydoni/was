@@ -119,9 +119,11 @@ if (!$data) {
             </div>
 
             <div class="flex justify-between mt-4">
-            <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
-            <a href="index.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Selesai</a>
-            <a href="scoring_edit.php?id=<?php echo base64_encode($data['kode']); ?>" 
+                <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
+                <button type="button" onclick="confirmFinish()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+                    Selesai
+                </button>
+                <a href="scoring_edit.php?id=<?php echo base64_encode($data['kode']); ?>" 
                     class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 inline-block">
                     Mulai
                 </a>
@@ -146,6 +148,32 @@ if (!$data) {
                 location.reload();
             }
         });
+    </script>
+    <script>
+        function confirmFinish() {
+            if (confirm("Apakah yakin Scoring sudah selesai?")) {
+                let id = "<?php echo base64_encode($data['kode']); ?>";
+                let grandTotal = "<?php echo $grandTotal; ?>";
+
+                fetch("update_skor.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "id=" + id + "&skor=" + grandTotal
+                })
+                .then(response => response.text())
+                .then(result => {
+                    if (result === "success") {
+                        alert("Scoring berhasil disimpan!");
+                        window.location.href = "index.php";
+                    } else {
+                        alert("Terjadi kesalahan, silakan coba lagi.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            }
+        }
     </script>
 
 </body>
