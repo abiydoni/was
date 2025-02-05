@@ -9,12 +9,12 @@
   "scope": "/",
   "icons": [
     {
-      "src": "../img/was_logo.png",
+      "src": "../img/logo_was2.ico",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "../img/logo_was.png",
+      "src": "../img/logo_was.ico",
       "sizes": "512x512",
       "type": "image/png"
     }
