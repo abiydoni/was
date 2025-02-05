@@ -37,10 +37,10 @@
 								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12">
 							<div class="image">
 								<img src="img/<?php echo $data['logo'];?>" alt="#">
-								<a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
+								<!-- <a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a> -->
 							</div>
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 				<div class="row">
 					<div class="col-md-2 col-sm-12 col-xs-12">
 						<div class="section-title">
-							<h2>My <span>Score</span></h2>
+							<h2>My <span>Update</span></h2>
 						</div>
 					</div>
 					<div class="col-md-10 col-sm-12 col-xs-12">
@@ -65,7 +65,7 @@
                 		?>	
 								<div class="col-md-6 col-sm-12 col-xs-12">
 									<div class="skill-content">
-										<h3>REKOR SCORING</h3>
+										<h3>SERBA - SERBI</h3>
 										<p>
 											<?php echo $data['sejarah']; ?>
 										</p>
