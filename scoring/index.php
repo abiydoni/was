@@ -6,6 +6,7 @@
     <title>List Pemain Panahan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gray-100 p-4">
     <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-lg">
