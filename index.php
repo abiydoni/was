@@ -37,12 +37,12 @@
 								<p class="bolt"><?php echo $data['visi_misi']; ?></p>
 							</div>
 						</div>
-						<div class="col-md-2 col-sm-2 col-xs-12">
+						<!-- <div class="col-md-2 col-sm-2 col-xs-12"> -->
 							<div class="image">
 								<img src="img/<?php echo $data['logo'];?>" alt="#">
 								<!-- <a href="<?php echo $data['youtube']; ?>" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a> -->
 							</div>
-						</div>
+						<!-- </div> -->
 					</div>
 				</div>
 			</div>
