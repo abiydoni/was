@@ -50,7 +50,10 @@
                     <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
                         <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
                         <td class="border border-gray-300 p-2">
-                            <a href="scoring.php?id=<?php echo base64_encode($data['kode']); ?>" class="text-blue-500 hover:text-blue-700"><?php echo htmlspecialchars($data['nama']); ?></a>
+                            <a href="<?php echo ($data['skor'] > 0) ? 'scoring.php?id=' . base64_encode($data['kode']) : 'scoring_end.php?id=' . base64_encode($data['kode']); ?>" 
+                            class="<?php echo ($data['skor'] > 0) ? 'text-blue-500 hover:text-blue-700' : 'text-gray-500 cursor-not-allowed'; ?>">
+                                <?php echo htmlspecialchars($data['nama']); ?>
+                            </a>
                         </td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['sesi']); ?></td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
