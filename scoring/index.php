@@ -59,10 +59,14 @@
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['skor']); ?></td>
                         <td class="border border-gray-300 p-2 text-center">
-                            <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl">
+                            <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" 
+                            class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl 
+                            <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <button onclick="openModal('<?php echo base64_encode($data['kode']); ?>', '<?php echo htmlspecialchars($data['nama']); ?>')" class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl">
+                            <button onclick="openModal('<?php echo base64_encode($data['kode']); ?>', '<?php echo htmlspecialchars($data['nama']); ?>')" 
+                                    class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl 
+                                    <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </td>
