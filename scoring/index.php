@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-100 p-2">
     <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-lg">
-        <a href="https://was.appsbee.my.id" class="text-sm text-blue-500 hover:text-blue-700" target="_blank">
+        <a href="https://was.appsbee.my.id" class="text-xs text-blue-500 hover:text-blue-700" target="_blank">
             <i class="fa fa-bullseye mr-2"></i>was.appsbee.my.id
         </a>
         <h3 class="text-xl font-bold text-gray-800">List Pemain</h3>
@@ -18,6 +18,9 @@
             <h5 class="font-bold mb-4 text-gray-800"><?php echo date('l, d F Y'); ?></h5>
             <a href="tambah_pemain.php" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">
                 <i class="fas fa-plus"></i>
+            </a>
+            <a href="laporan.php?updated=<?php echo time(); ?>" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow hover:bg-green-600">
+                <i class="far fa-clipboard"></i>
             </a>
         </div>
 
