@@ -110,7 +110,7 @@ if (!$data) {
             </div>
 
             <div class="flex justify-between mt-4">
-                <a href="index.php" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
+                <a href="index.php?updated=<?php echo time(); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Kembali</a>
             </div>
         </form>
     </div>
