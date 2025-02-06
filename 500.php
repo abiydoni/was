@@ -45,19 +45,50 @@
                   />
                 </svg>
                 <span class="text-xl font-medium text-gray-600 sm:text-2xl dark:text-light">
-                  Oops! Masih Dalam Perbaikan.
+                  Oops! Maaf Masih Dalam Perbaikan.
                 </span>
               </h1>
               <p class="text-base font-normal text-gray-600 dark:text-gray-300">
-                Mohon Maaf saat belum bisa mengkases halaman yang anda pilih.
+                Moohon Maaf Anda belu bisa mengakses halaman ini.
               </p>
               <p class="text-base font-normal text-gray-600 dark:text-gray-300">
                 Silahkan kembali ke 
-                <a href="index.php" class="text-blue-600 hover:underline dark:text-blue-500">Halaman Beranda</a>
-                Untuk Melanjutkan Informasi mengenahi Panahan Salatiga.
+                <a href="index.html" class="text-blue-600 hover:underline dark:text-blue-500">Halaman Depan</a> 
+                Terima kasih.
               </p>
             </div>
           </div>
+
+          <form action="#">
+            <div class="flex items-center justify-center">
+              <input
+                type="text"
+                name="search"
+                placeholder="What are you looking for?"
+                class="w-full px-4 py-2 rounded-l-md focus:outline-none focus:ring focus:ring-primary-light dark:bg-darker dark:focus:ring-primary-darker"
+              />
+              <button
+                class="p-2 text-white rounded-r-md bg-primary dark:bg-primary-dark hover:bg-primary-dark dark:hover:bg-primary-darker focus:outline-none focus:ring focus:ring-primary-light dark:focus:ring-primary-darker"
+              >
+                <span class="sr-only">Search</span>
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
       </main>
       <div class="fixed bottom-5 left-5">
