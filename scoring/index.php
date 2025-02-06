@@ -130,6 +130,13 @@
     </div>
 
     <script>
+        function openAddModal() {
+            document.getElementById('addModal').classList.remove('hidden');
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').classList.add('hidden');
+        }
         function openModal(id, name) {
             document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + name + '?';
             document.getElementById('deleteLink').href = "hapus_pemain.php?id=" + id;
