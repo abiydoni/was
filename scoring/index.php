@@ -1,3 +1,14 @@
+<?php
+include '../koneksi.php';
+
+// Ambil data anggota dari database
+$qry = mysqli_query($konek, "SELECT kode, nama FROM tbl_anggota");
+$anggota = [];
+while ($row = mysqli_fetch_assoc($qry)) {
+    $anggota[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -79,7 +90,7 @@
     <div id="addModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
         <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
-            <form action="tambah_pemain.php" method="POST">
+            <form action="tambah_pemain.php" method="POST" @submit="validateAndSubmit"">
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Nama Pemain</label>
                     <input type="hidden" name="kode_agt" x-model="selectedKode">
