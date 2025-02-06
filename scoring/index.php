@@ -19,7 +19,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> <!-- Menambahkan Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script rsc="../js/pesan.js"></script>
+    <script src="../js/pesan.js"></script>
     <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gray-100 p-2">
