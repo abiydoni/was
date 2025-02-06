@@ -160,46 +160,5 @@ while ($row = mysqli_fetch_assoc($qry)) {
             document.getElementById('modal').classList.add('hidden');
         }
     </script>
-    <script>
-        function dropdownData() {
-            return {
-                search: '',
-                open: false,
-                selectedKode: '',
-                selectedNama: '',
-                jarak: 0,
-                sesi: 1,
-                errorNama: false,
-                errorJarak: false,
-                errorSesi: false,
-                anggota: <?php echo json_encode($anggota); ?>,
-                
-                get filteredAnggota() {
-                    return this.anggota.filter(a => a.nama.toLowerCase().includes(this.search.toLowerCase()));
-                },
-
-                selectItem(item) {
-                    this.search = item.nama;
-                    this.selectedNama = item.nama;
-                    this.selectedKode = item.kode;
-                    this.errorNama = false;
-                    this.open = false;
-                },
-
-                validateAndSubmit(event) {
-                    this.errorNama = !this.anggota.some(a => a.nama.toLowerCase() === this.search.toLowerCase());
-                    this.errorJarak = this.jarak == 0;
-                    this.errorSesi = this.sesi < 1;
-
-                    if (this.errorNama || this.errorJarak || this.errorSesi) {
-                        return;
-                    }
-
-                    event.target.submit();
-                }
-            };
-        }
-    </script>
-
 </body>
 </html>
