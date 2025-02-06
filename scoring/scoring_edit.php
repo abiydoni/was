@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $s5 = mysqli_real_escape_string($konek, $_POST['Anak-Panah-5-Input']);
     $s6 = mysqli_real_escape_string($konek, $_POST['Anak-Panah-6-Input']);
 
-    $sql = "INSERT INTO tbl_scoring (kode, nama, jarak, s1, s2, s3, s4, s5, s6) 
-            VALUES ('$id', '{$data_nama['nama']}', '{$data_nama['jarak']}', '$s1', '$s2', '$s3', '$s4', '$s5', '$s6')";
+    $sql = "INSERT INTO tbl_scoring (kode, nama, jarak, s1, s2, s3, s4, s5, s6, sesi) 
+            VALUES ('$id', '{$data_nama['nama']}', '{$data_nama['jarak']}', '$s1', '$s2', '$s3', '$s4', '$s5', '$s6', '{$data_nama['sesi']}')";
 
     if (mysqli_query($konek, $sql)) {
         header("Location: scoring.php?id=" . base64_encode($data_nama['kode'])); // Perbaiki dengan operator .

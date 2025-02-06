@@ -38,12 +38,7 @@
                     ?>
                     <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
                         <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
-                        <td class="border border-gray-300 p-2">
-                            <a href="<?php echo ($data['skor'] > 0) ? 'scoring_end.php?id=' . base64_encode($data['kode']) : 'scoring.php?id=' . base64_encode($data['kode']); ?>" 
-                            class="<?php echo ($data['skor'] > 0) ? 'text-gray-500 hover:text-gray-700' : 'text-blue-500 hover:text-blue-700'; ?>">
-                                <?php echo htmlspecialchars($data['nama']); ?>
-                            </a>
-                        </td>
+                        <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['nama']); ?></td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['sesi']); ?></td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['skor']); ?></td>
@@ -60,15 +55,5 @@
         </div>
 
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('updated')) {
-                loadTable();  // Update data langsung setelah kembali ke index.php
-                window.history.replaceState({}, document.title, "index.php"); // Hapus parameter dari URL agar tidak trigger ulang saat refresh
-            }
-        });
-    </script>
 </body>
 </html>
