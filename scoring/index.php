@@ -93,7 +93,8 @@ while ($row = mysqli_fetch_assoc($qry)) {
     <div id="addModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
         <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
-            <form action="tambah_pemain.php" method="POST" @submit="validateAndSubmit">
+                <form action="tambah_pemain.php" method="POST" x-data="dropdownData()" @submit.prevent="validateAndSubmit">
+                <!-- Input Nama Pemain -->
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Nama Pemain</label>
                     <input type="hidden" name="kode_agt" x-model="selectedKode">
@@ -111,6 +112,8 @@ while ($row = mysqli_fetch_assoc($qry)) {
                     </div>
                     <p class="text-red-500 text-sm mt-1" x-show="errorNama">Nama harus sesuai dengan pilihan!</p>
                 </div>
+
+                <!-- Input Jarak -->
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Jarak (m)</label>
                     <input type="number" name="jarak" x-model="jarak" min="0" value="0" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jarak (m)">
@@ -123,8 +126,10 @@ while ($row = mysqli_fetch_assoc($qry)) {
                     <input type="number" name="sesi" x-model="sesi" min="1" value="1" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jumlah sesi">
                     <p class="text-red-500 text-sm mt-1" x-show="errorSesi">Sesi minimal 1!</p>
                 </div>
-                <div class="flex justify-end">
-                    <button type="button" onclick="closeAddModal()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 mr-2">Batal</button>
+
+                <!-- Tombol Aksi -->
+                <div class="flex justify-between">
+                    <a href="index.php?updated=<?php echo time(); ?>" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Batal</a>
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Simpan</button>
                 </div>
             </form>
