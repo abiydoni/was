@@ -26,19 +26,8 @@
             </div>
         </div>
 
-        <!-- <?php
-        if (isset($_GET['status'])) {
-            if ($_GET['status'] == 'success') {
-                echo '<div class="bg-green-500 text-white p-4 rounded mb-4">Data berhasil diperbarui!</div>';
-            } elseif ($_GET['status'] == 'error') {
-                echo '<div class="bg-red-500 text-white p-4 rounded mb-4">Terjadi kesalahan, data gagal diperbarui.</div>';
-            }
-        }
-        ?> -->
-
         <div class="overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300 text-sm">
-                <!-- Tambahkan efek hover dan zebra stripes -->
                 <thead>
                     <tr class="bg-gray-200 text-gray-700">
                         <th class="border border-gray-300 p-2">No</th>
@@ -52,9 +41,11 @@
                 <tbody>
                     <?php
                     include '../koneksi.php';
-                    $qry = mysqli_query($konek, "SELECT * FROM tbl_nama WHERE DATE(tanggal) = CURDATE()");
+                    $stmt = $konek->prepare("SELECT * FROM tbl_nama WHERE DATE(tanggal) = CURDATE()");
+                    $stmt->execute();
+                    $result = $stmt->get_result();
                     $no = 1;
-                    while ($data = mysqli_fetch_array($qry)) {
+                    while ($data = $result->fetch_assoc()) {
                     ?>
                     <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
                         <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
@@ -69,13 +60,13 @@
                         <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['skor']); ?></td>
                         <td class="border border-gray-300 p-2 text-center">
                             <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" 
-                            class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl 
-                            <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>">
+                            class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
+                            title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa diedit setelah memiliki skor' : 'Edit Pemain'; ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <button onclick="openModal('<?php echo base64_encode($data['kode']); ?>', '<?php echo htmlspecialchars($data['nama']); ?>')" 
-                                    class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl 
-                                    <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>">
+                                    class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
+                                    title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'; ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </td>
@@ -84,17 +75,9 @@
                 </tbody>
             </table>
         </div>
-        <br>
-        <!-- <div class="mt-4">
-            <a href="../service.php" class="bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 inline-flex items-center">
-                <i class="fa fa-bullseye mr-2"></i> Keluar
-            </a>
-        </div>
- -->
     </div>
 
-    <!-- Modal Konfirmasi Hapus -->
-    <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+    <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden transition-opacity duration-300 ease-in-out">
         <div class="bg-white p-6 rounded-lg shadow-lg w-96">
             <h5 id="modal-message" class="text-lg font-bold text-gray-800"></h5>
             <div class="mt-4 flex justify-end">
@@ -109,33 +92,10 @@
             document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + name + '?';
             document.getElementById('deleteLink').href = "hapus_pemain.php?id=" + id;
             document.getElementById('modal').classList.remove('hidden');
-            window.reload();
         }
 
         function closeModal() {
             document.getElementById('modal').classList.add('hidden');
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('updated')) {
-                loadTable();  // Update data langsung setelah kembali ke index.php
-                window.history.replaceState({}, document.title, "index.php"); // Hapus parameter dari URL agar tidak trigger ulang saat refresh
-            }
-        });
-    </script>
-    <script>
-        // Register the service worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then((registration) => {
-                console.log('Service Worker registered with scope:', registration.scope);
-                })
-                .catch((error) => {
-                console.error('Service Worker registration failed:', error);
-                });
-            });
         }
     </script>
 </body>
