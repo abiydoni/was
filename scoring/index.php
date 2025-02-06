@@ -19,6 +19,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> <!-- Menambahkan Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script rsc="../js/pesan.js"></script>
     <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gray-100 p-2">
@@ -77,9 +78,9 @@ while ($row = mysqli_fetch_assoc($qry)) {
                             title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa diedit setelah memiliki skor' : 'Edit Pemain'; ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <button onclick="openModal('<?php echo base64_encode($data['kode']); ?>', '<?php echo htmlspecialchars($data['nama']); ?>')" 
-                                    class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
-                                    title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'; ?>">
+                            <button onclick="konfirmasiHapus('<?= base64_encode($data['kode']); ?>', '<?= htmlspecialchars($data['nama']); ?>')" 
+                                    class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl <?= ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
+                                    title="<?= ($data['skor'] > 0) ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'; ?>">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </td>
@@ -137,16 +138,6 @@ while ($row = mysqli_fetch_assoc($qry)) {
         </div>
     </div>
 
-    <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden transition-opacity duration-300 ease-in-out">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h5 id="modal-message" class="text-lg font-bold text-gray-800"></h5>
-            <div class="mt-4 flex justify-end">
-                <button onclick="closeModal()" class="bg-gray-300 text-gray-700 hover:bg-gray-400 px-4 py-2 rounded-lg mr-2">Batal</button>
-                <a id="deleteLink" href="#" class="bg-red-500 text-white hover:bg-red-600 px-4 py-2 rounded-lg">Hapus</a>
-            </div>
-        </div>
-    </div>
-
     <script>
         function openAddModal() {
             document.getElementById('addModal').classList.remove('hidden');
@@ -154,16 +145,6 @@ while ($row = mysqli_fetch_assoc($qry)) {
 
         function closeAddModal() {
             document.getElementById('addModal').classList.add('hidden');
-        }
-
-        function openModal(id, nama) {
-            document.getElementById('modal').classList.remove('hidden');
-            document.getElementById('modal-message').textContent = `Apakah Anda yakin ingin menghapus pemain "${nama}"?`;
-            document.getElementById('deleteLink').setAttribute('href', 'hapus_pemain.php?id=' + id);
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
         }
     </script>
     <script>
