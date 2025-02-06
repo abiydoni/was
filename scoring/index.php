@@ -109,6 +109,7 @@
             document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + name + '?';
             document.getElementById('deleteLink').href = "hapus_pemain.php?id=" + id;
             document.getElementById('modal').classList.remove('hidden');
+            window.reload();
         }
 
         function closeModal() {
