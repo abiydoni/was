@@ -108,7 +108,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
                     </div>
                     <p class="text-red-500 text-sm mt-1" x-show="errorNama">Nama harus sesuai dengan pilihan!</p>
                 </div>
-                <!-- Input Jarak -->
+                // ... existing code ...                <!-- Input Jarak -->
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Jarak (m)</label>
                     <input type="number" name="jarak" x-model="jarak" min="0" value="0" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jarak (m)">
@@ -148,6 +148,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
         function closeAddModal() {
             document.getElementById('addModal').classList.add('hidden');
         }
+        
         function openModal(id, name) {
             document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + name + '?';
             document.getElementById('deleteLink').href = "hapus_pemain.php?id=" + id;
