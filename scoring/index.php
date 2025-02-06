@@ -17,10 +17,11 @@ while ($row = mysqli_fetch_assoc($qry)) {
     <title>List Pemain Panahan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> <!-- Menambahkan Alpine.js -->
     <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gray-100 p-2">
-    <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-lg">
+    <div class="max-w-4xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-lg" x-data="dropdownData()">
         <a href="https://was.appsbee.my.id" class="text-xs text-blue-500 hover:text-blue-700" target="_blank">
             <i class="fa fa-bullseye mr-2"></i>was.appsbee.my.id
         </a>
@@ -87,10 +88,12 @@ while ($row = mysqli_fetch_assoc($qry)) {
             </table>
         </div>
     </div>
+
+    <!-- Modal Tambah Pemain -->
     <div id="addModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
         <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h2 class="text-2xl font-bold mb-4 text-gray-800">Tambah Pemain</h2>
-            <form action="tambah_pemain.php" method="POST" @submit="validateAndSubmit"">
+            <form action="tambah_pemain.php" method="POST" @submit="validateAndSubmit">
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Nama Pemain</label>
                     <input type="hidden" name="kode_agt" x-model="selectedKode">
@@ -128,7 +131,6 @@ while ($row = mysqli_fetch_assoc($qry)) {
         </div>
     </div>
 
-
     <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden transition-opacity duration-300 ease-in-out">
         <div class="bg-white p-6 rounded-lg shadow-lg w-96">
             <h5 id="modal-message" class="text-lg font-bold text-gray-800"></h5>
@@ -148,17 +150,16 @@ while ($row = mysqli_fetch_assoc($qry)) {
             document.getElementById('addModal').classList.add('hidden');
         }
 
-        function openModal(id, name) {
-            document.getElementById('modal-message').innerHTML = 'Apakah Anda yakin ingin menghapus data dengan nama: ' + name + '?';
-            document.getElementById('deleteLink').href = "hapus_pemain.php?id=" + id;
+        function openModal(id, nama) {
             document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal-message').textContent = `Apakah Anda yakin ingin menghapus pemain "${nama}"?`;
+            document.getElementById('deleteLink').setAttribute('href', 'hapus_pemain.php?id=' + id);
         }
 
         function closeModal() {
             document.getElementById('modal').classList.add('hidden');
         }
     </script>
-
     <script>
         function dropdownData() {
             return {
