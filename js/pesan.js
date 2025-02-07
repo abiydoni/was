@@ -32,7 +32,7 @@ function confirmDelete(event, element) {
     cancelButtonText: "Batal",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = element.href; // Lanjutkan ke link hapus
+      window.location.href = `scoring_hapus.php?id=${id}`;
       Swal.fire({
         title: "Deleted!",
         text: "Your file has been deleted.",
