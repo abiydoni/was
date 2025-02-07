@@ -33,13 +33,13 @@ function confirmDelete(event, element) {
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href = element.href; // Lanjutkan ke link hapus
-      location.reload();
       Swal.fire({
         title: "Deleted!",
         text: "Your file has been deleted.",
         icon: "success",
       });
     }
+    location.reload();
   });
 
   return false; // Mencegah action default
