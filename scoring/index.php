@@ -123,10 +123,16 @@ while ($row = mysqli_fetch_assoc($qry)) {
                 </div>
 
                 <!-- Input Sesi -->
-                <div class="mb-4">
+                <div x-data="{ sesi: 1 }" class="mb-4">
                     <label class="block text-gray-700 font-semibold">Berapa Sesi?</label>
-                    <input type="number" name="sesi" x-model="sesi" min="1" value="1" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Masukkan jumlah sesi">
-                    <p class="text-red-500 text-sm mt-1" x-show="errorSesi">Sesi minimal 1!</p>
+                    <select name="sesi" x-model="sesi" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        <option value="1" selected>1 Sesi</option>
+                        <option value="2">2 Sesi</option>
+                        <option value="3">3 Sesi</option>
+                        <option value="4">4 Sesi</option>
+                        <option value="5">5 Sesi</option>
+                        <option value="6">6 Sesi</option>
+                    </select>
                 </div>
 
                 <!-- Tombol Aksi -->
