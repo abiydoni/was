@@ -18,6 +18,7 @@ function konfirmasiHapus(id, nama) {
     }
   });
 }
+
 function confirmDelete(event, element) {
   event.preventDefault(); // Mencegah langsung ke link
 
@@ -32,12 +33,44 @@ function confirmDelete(event, element) {
     cancelButtonText: "Batal",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = element.href; // Lanjutkan ke link hapus
+      // Tampilkan loading sebelum menghapus
       Swal.fire({
-        title: "Deleted!",
-        text: "Your file has been deleted.",
-        icon: "success",
+        title: "Menghapus...",
+        text: "Silakan tunggu",
+        icon: "info",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
       });
+
+      // Kirim request penghapusan menggunakan fetch agar tidak perlu pindah halaman
+      fetch(element.href, { method: "GET" })
+        .then((response) => response.text())
+        .then((data) => {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Data telah dihapus.",
+            icon: "success",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+
+          // Reload halaman setelah 2 detik agar tabel terupdate
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: "Error!",
+            text: "Terjadi kesalahan saat menghapus data.",
+            icon: "error",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+        });
     }
   });
 
