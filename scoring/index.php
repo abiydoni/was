@@ -2,7 +2,7 @@
 include '../koneksi.php';
 
 // Ambil data anggota dari database
-$qry = mysqli_query($konek, "SELECT kode, nama FROM tbl_anggota");
+$qry = mysqli_query($konek, "SELECT kode, nama FROM tbl_anggota ORDER BY nama ASC");
 $anggota = [];
 while ($row = mysqli_fetch_assoc($qry)) {
     $anggota[] = $row;
