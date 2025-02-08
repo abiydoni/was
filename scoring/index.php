@@ -52,9 +52,8 @@ while ($row = mysqli_fetch_assoc($qry)) {
                         <th class="border border-gray-300 p-2">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
                     <?php
-                    include '../koneksi.php';
                     $stmt = $konek->prepare("SELECT * FROM tbl_nama WHERE DATE(tanggal) = CURDATE()");
                     $stmt->execute();
                     $result = $stmt->get_result();
@@ -193,5 +192,20 @@ while ($row = mysqli_fetch_assoc($qry)) {
             };
         }
     </script>
+
+    <script>
+        function refreshTable() {
+            fetch('get_pemain.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('table-body').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        setInterval(refreshTable, 5000); // Update setiap 60 detik
+        refreshTable(); // Panggil saat pertama kali halaman dimuat
+    </script>
+
 </body>
 </html>
