@@ -52,40 +52,7 @@ while ($row = mysqli_fetch_assoc($qry)) {
                         <th class="border border-gray-300 p-2">Aksi</th>
                     </tr>
                 </thead>
-                <tbody id="table-body">
-                    <?php
-                    $stmt = $konek->prepare("SELECT * FROM tbl_nama WHERE DATE(tanggal) = CURDATE()");
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    $no = 1;
-                    while ($data = $result->fetch_assoc()) {
-                    ?>
-                    <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
-                        <td class="border border-gray-300 p-2 text-center"><?php echo $no++; ?></td>
-                        <td class="border border-gray-300 p-2">
-                            <a href="<?php echo ($data['skor'] > 0) ? 'scoring_end.php?id=' . base64_encode($data['kode']) : 'scoring.php?id=' . base64_encode($data['kode']); ?>" 
-                            class="<?php echo ($data['skor'] > 0) ? 'text-gray-500 hover:text-gray-700' : 'text-blue-500 hover:text-blue-700'; ?>">
-                                <?php echo htmlspecialchars($data['nama']); ?>
-                            </a>
-                        </td>
-                        <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['sesi']); ?></td>
-                        <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['jarak']); ?></td>
-                        <td class="border border-gray-300 p-2 text-center"><?php echo htmlspecialchars($data['skor']); ?></td>
-                        <td class="border border-gray-300 p-2 text-center">
-                            <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" 
-                            class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
-                            title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa diedit setelah memiliki skor' : 'Edit Pemain'; ?>">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button onclick="konfirmasiHapus('<?= base64_encode($data['kode']); ?>', '<?= htmlspecialchars($data['nama']); ?>')" 
-                                    class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl <?= ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
-                                    title="<?= ($data['skor'] > 0) ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'; ?>">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
+                <tbody id="table-body"></tbody>
             </table>
         </div>
     </div>
@@ -194,17 +161,42 @@ while ($row = mysqli_fetch_assoc($qry)) {
     </script>
 
     <script>
-        function refreshTable() {
-            fetch('get_pemain.php')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('table-body').innerHTML = data;
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
-
-        setInterval(refreshTable, 5000); // Update setiap 60 detik
-        refreshTable(); // Panggil saat pertama kali halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            function fetchData() {
+                fetch('get_pemain.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        let tableBody = document.getElementById('table-body');
+                        tableBody.innerHTML = '';
+                        data.forEach((item, index) => {
+                            let row = `
+                                <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
+                                    <td class="border border-gray-300 p-2 text-center">${index + 1}</td>
+                                    <td class="border border-gray-300 p-2 text-blue-500">${item.nama}</td>
+                                    <td class="border border-gray-300 p-2 text-center">${item.sesi}</td>
+                                    <td class="border border-gray-300 p-2 text-center">${item.jarak}</td>
+                                    <td class="border border-gray-300 p-2 text-center">${item.skor}</td>
+                                    <td class="border border-gray-300 p-2 text-center">
+                                        <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" 
+                                        class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
+                                        title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa diedit setelah memiliki skor' : 'Edit Pemain'; ?>">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <button onclick="konfirmasiHapus('<?= base64_encode($data['kode']); ?>', '<?= htmlspecialchars($data['nama']); ?>')" 
+                                                class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl <?= ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
+                                                title="<?= ($data['skor'] > 0) ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'; ?>">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>`;
+                            tableBody.innerHTML += row;
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            }
+            setInterval(fetchData, 5000);
+            fetchData();
+        });
     </script>
 
 </body>
