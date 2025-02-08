@@ -169,22 +169,30 @@ while ($row = mysqli_fetch_assoc($qry)) {
                         let tableBody = document.getElementById('table-body');
                         tableBody.innerHTML = '';
                         data.forEach((item, index) => {
+                            let encodedId = btoa(item.kode); // Base64 encoding di JavaScript
+                            let skorLebihDariNol = item.skor > 0;
+
                             let row = `
                                 <tr class="hover:bg-gray-100 odd:bg-white even:bg-gray-50">
                                     <td class="border border-gray-300 p-2 text-center">${index + 1}</td>
-                                    <td class="border border-gray-300 p-2 text-blue-500">${item.nama}</td>
+                                    <td class="border border-gray-300 p-2">
+                                        <a href="${skorLebihDariNol ? 'scoring_end.php?id=' + encodedId : 'scoring.php?id=' + encodedId}" 
+                                        class="${skorLebihDariNol ? 'text-gray-500 hover:text-gray-700' : 'text-blue-500 hover:text-blue-700'}">
+                                            ${item.nama}
+                                        </a>
+                                    </td>
                                     <td class="border border-gray-300 p-2 text-center">${item.sesi}</td>
                                     <td class="border border-gray-300 p-2 text-center">${item.jarak}</td>
                                     <td class="border border-gray-300 p-2 text-center">${item.skor}</td>
                                     <td class="border border-gray-300 p-2 text-center">
-                                        <a href="edit_pemain.php?id=<?php echo base64_encode($data['kode']); ?>" 
-                                        class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl <?php echo ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
-                                        title="<?php echo ($data['skor'] > 0) ? 'Tidak bisa diedit setelah memiliki skor' : 'Edit Pemain'; ?>">
+                                        <a href="edit_pemain.php?id=${encodedId}" 
+                                        class="text-blue-500 hover:text-blue-700 mx-2 text-lg sm:text-xl ${skorLebihDariNol ? 'pointer-events-none opacity-50' : ''}"
+                                        title="${skorLebihDariNol ? 'Tidak bisa diedit setelah memiliki skor' : 'Edit Pemain'}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <button onclick="konfirmasiHapus('<?= base64_encode($data['kode']); ?>', '<?= htmlspecialchars($data['nama']); ?>')" 
-                                                class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl <?= ($data['skor'] > 0) ? 'pointer-events-none opacity-50' : ''; ?>"
-                                                title="<?= ($data['skor'] > 0) ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'; ?>">
+                                        <button onclick="konfirmasiHapus('${encodedId}', '${item.nama}')" 
+                                                class="text-red-500 hover:text-red-700 mx-2 text-lg sm:text-xl ${skorLebihDariNol ? 'pointer-events-none opacity-50' : ''}"
+                                                title="${skorLebihDariNol ? 'Tidak bisa dihapus setelah memiliki skor' : 'Hapus Pemain'}">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </td>
