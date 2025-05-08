@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+
 <title>Video</title>
 
 <section id="latest-works" class="latest-works">
@@ -8,8 +9,8 @@
                 <div class="section-title">
                     <h2>My <span>VIDEO</span></h2>
                 </div>
-                <div id="video-container" class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                    <!-- Video akan ditampilkan di sini -->
+                <div id="video-container" class="row" style="margin-top: 30px;">
+                <!-- Video akan muncul di sini -->
                 </div>
             </div>
         </div>
@@ -32,27 +33,56 @@
             const videoId = item.id.videoId;
             const title = item.snippet.title;
 
-            const card = document.createElement('div');
-            card.className = 'bg-white rounded-lg shadow p-4';
+            const col = document.createElement('div');
+            col.className = 'col-xs-12 col-sm-6 col-md-4 col-lg-3';
 
-            card.innerHTML = `
-              <div class="overflow-hidden rounded mb-2 transition-transform duration-300 hover:scale-105">
-                <iframe 
-                  class="w-full aspect-video" 
-                  src="https://www.youtube.com/embed/${videoId}" 
-                  frameborder="0" 
-                  allowfullscreen>
-                </iframe>
+            const html = `
+              <div class="video-container">
+                <div class="video-wrapper">
+                  <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+                </div>
+                <div class="video-title" title="${title}">${title}</div>
               </div>
-              <p class="text-sm font-medium text-gray-700 truncate" title="${title}">
-                ${title}
-              </p>
             `;
 
-            container.appendChild(card);
+            col.innerHTML = html;
+            container.appendChild(col);
           }
         });
       });
   </script>
 
 <?php include 'footer.php'; ?>
+<style>
+    .video-container {
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+    .video-container:hover {
+      transform: scale(1.05);
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      padding-top: 25px;
+      height: 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-title {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
