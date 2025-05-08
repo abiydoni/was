@@ -13,15 +13,6 @@
                 </div>
             </div>
         </div>
-        <div class="row"> <!-- Mengatur jarak antar kolom -->
-            <div class="col-md-4 col-sm-6 col-xs-12 mb-4"> <!-- Responsif untuk perangkat kecil -->
-                <div class="card video-card shadow-lg rounded" style="border: none; overflow: hidden;">
-                    <div id="video-container" class="embed-responsive embed-responsive-16by9">
-                        <!-- Menampilkan video embed langsung -->
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -63,22 +54,3 @@
   </script>
 
 <?php include 'footer.php'; ?>
-
-<!-- CSS untuk penyesuaian jarak antar card dan styling tambahan -->
-<style>
-    .card {
-        border-radius: 15px; /* Menambahkan kelengkungan pada card */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan efek shadow pada card */
-        margin-bottom: 30px; /* Menambahkan jarak antar card */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek transisi saat hover */
-    }
-
-    .card:hover {
-        transform: translateY(-10px); /* Efek angkat card saat hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow lebih besar saat hover */
-    }
-
-    .card-body {
-        padding: 15px; /* Mengatur padding pada card-body */
-    }
-</style>
