@@ -8,6 +8,9 @@
                 <div class="section-title">
                     <h2>My <span>VIDEO</span></h2>
                 </div>
+                <div id="video-container" class="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    <!-- Video akan ditampilkan di sini -->
+                </div>
             </div>
         </div>
         <div class="row"> <!-- Mengatur jarak antar kolom -->
