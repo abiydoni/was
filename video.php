@@ -36,12 +36,14 @@
             card.className = 'bg-white rounded-lg shadow p-4';
 
             card.innerHTML = `
-              <iframe 
-                class="w-full aspect-video mb-2 rounded" 
-                src="https://www.youtube.com/embed/${videoId}" 
-                frameborder="0" 
-                allowfullscreen>
-              </iframe>
+              <div class="overflow-hidden rounded mb-2 transition-transform duration-300 hover:scale-105">
+                <iframe 
+                  class="w-full aspect-video" 
+                  src="https://www.youtube.com/embed/${videoId}" 
+                  frameborder="0" 
+                  allowfullscreen>
+                </iframe>
+              </div>
               <p class="text-sm font-medium text-gray-700 truncate" title="${title}">
                 ${title}
               </p>
