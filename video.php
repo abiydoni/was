@@ -11,32 +11,57 @@
             </div>
         </div>
         <div class="row"> <!-- Mengatur jarak antar kolom -->
-            <?php
-            include 'koneksi.php';  // Koneksi ke database
-            $qry = mysqli_query($konek, "SELECT * FROM tbl_bulan LIMIT 200");  // Ambil data video dari database
-
-            while ($data = mysqli_fetch_assoc($qry)) {
-                // Pastikan URL video dalam format embed
-                $video_url = $data['uraian'];
-                if (strpos($video_url, "watch?v=") !== false) {
-                    $video_url = str_replace("watch?v=", "embed/", $video_url);  // Ubah URL YouTube ke embed
-                }
-            ?>
-                <div class="col-md-4 col-sm-6 col-xs-12 mb-4"> <!-- Responsif untuk perangkat kecil -->
-                    <div class="card video-card shadow-lg rounded" style="border: none; overflow: hidden;">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <!-- Menampilkan video embed langsung -->
-                            <iframe width="100%" height="315" src="<?php echo $video_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><?php echo $data['nama']; ?></h5>
-                        </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 mb-4"> <!-- Responsif untuk perangkat kecil -->
+                <div class="card video-card shadow-lg rounded" style="border: none; overflow: hidden;">
+                    <div id="video-container" class="embed-responsive embed-responsive-16by9">
+                        <!-- Menampilkan video embed langsung -->
+                        <iframe width="100%" height="315" src="<?php echo $video_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><?php echo $data['nama']; ?></h5>
                     </div>
                 </div>
-            <?php } ?>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    const API_KEY = 'AIzaSyBC_mSpXb1S1r_W5cl6sbMFv5NFxQftlNw';
+    const CHANNEL_ID = 'UCx6AKQV9hHeAm8JU6p7XejQ';
+    const MAX_RESULTS = 20;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`)
+      .then(response => response.json())
+      .then(data => {
+        const videos = data.items;
+        const container = document.getElementById('video-container');
+
+        videos.forEach(item => {
+          if (item.id.kind === 'youtube#video') {
+            const videoId = item.id.videoId;
+            const title = item.snippet.title;
+
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-lg shadow p-4';
+
+            card.innerHTML = `
+              <iframe 
+                class="w-full aspect-video mb-2 rounded" 
+                src="https://www.youtube.com/embed/${videoId}" 
+                frameborder="0" 
+                allowfullscreen>
+              </iframe>
+              <p class="text-sm font-medium text-gray-700 truncate" title="${title}">
+                ${title}
+              </p>
+            `;
+
+            container.appendChild(card);
+          }
+        });
+      });
+  </script>
 
 <?php include 'footer.php'; ?>
 
