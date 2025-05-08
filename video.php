@@ -15,10 +15,6 @@
                 <div class="card video-card shadow-lg rounded" style="border: none; overflow: hidden;">
                     <div id="video-container" class="embed-responsive embed-responsive-16by9">
                         <!-- Menampilkan video embed langsung -->
-                        <iframe width="100%" height="315" src="<?php echo $video_url; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title"><?php echo $data['nama']; ?></h5>
                     </div>
                 </div>
             </div>
