@@ -22,7 +22,7 @@
     // const CHANNEL_ID = 'UCx6AKQV9hHeAm8JU6p7XejQ';
     const API_KEY = 'AIzaSyC50TKuv65HSJQiNMHIHezFCQHpnYl_xv4';
     const CHANNEL_ID = 'UCV8z4gSEZhptQsxL2ZAjQEw';
-    const MAX_RESULTS = 20;
+    const MAX_RESULTS = 100;
 
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`)
       .then(response => response.json())
