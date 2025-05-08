@@ -18,8 +18,10 @@
 </section>
 
 <script>
-    const API_KEY = 'AIzaSyBC_mSpXb1S1r_W5cl6sbMFv5NFxQftlNw';
-    const CHANNEL_ID = 'UCx6AKQV9hHeAm8JU6p7XejQ';
+    // const API_KEY = 'AIzaSyBC_mSpXb1S1r_W5cl6sbMFv5NFxQftlNw'; punya abiydoni
+    // const CHANNEL_ID = 'UCx6AKQV9hHeAm8JU6p7XejQ';
+    const API_KEY = 'AIzaSyC50TKuv65HSJQiNMHIHezFCQHpnYl_xv4';
+    const CHANNEL_ID = 'UCV8z4gSEZhptQsxL2ZAjQEw';
     const MAX_RESULTS = 20;
 
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`)
