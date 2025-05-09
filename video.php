@@ -10,12 +10,28 @@
           <h2>My <span>VIDEO</span></h2>
         </div>
 
-        <div id="video-container" class="row" style="margin-top: 30px;">
+        <div class="row" style="margin-bottom: 20px;">
+          <div class="col-md-6">
+            <label>Tampilkan: 
+              <select id="perPageSelect" class="form-control" style="width: auto; display: inline-block;">
+                <option value="10">10</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select> video per halaman
+            </label>
+          </div>
+          <div class="col-md-6 text-right">
+            <div id="page-info"></div>
+          </div>
+        </div>
+
+        <div id="video-container" class="row" style="margin-top: 20px;">
           <!-- Video akan muncul di sini -->
         </div>
 
         <div id="pagination" style="text-align: center; margin-top: 20px;">
-          <button id="prev-btn" disabled class="btn btn-primary">Sebelumnya</button>
+          <button id="prev-btn" class="btn btn-primary">Sebelumnya</button>
+          <span id="page-number" style="margin: 0 15px;"></span>
           <button id="next-btn" class="btn btn-primary">Berikutnya</button>
         </div>
       </div>
@@ -26,31 +42,53 @@
 <script>
   const API_KEY = 'AIzaSyC50TKuv65HSJQiNMHIHezFCQHpnYl_xv4';
   const CHANNEL_ID = 'UCV8z4gSEZhptQsxL2ZAjQEw';
-  const MAX_RESULTS = 10;
 
-  let nextPageToken = '';
-  let prevPageToken = '';
-  let currentPageToken = '';
+  let videos = [];
+  let perPage = 10;
+  let currentPage = 1;
 
-  async function fetchVideos(pageToken = '') {
-    const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&type=video&maxResults=${MAX_RESULTS}${pageToken ? `&pageToken=${pageToken}` : ''}`;
-    const response = await fetch(url);
-    const data = await response.json();
+  document.getElementById('perPageSelect').addEventListener('change', (e) => {
+    perPage = parseInt(e.target.value);
+    currentPage = 1;
+    renderPage();
+  });
 
-    if (data.items) {
-      renderVideos(data.items);
-      nextPageToken = data.nextPageToken || '';
-      prevPageToken = data.prevPageToken || '';
-      currentPageToken = pageToken;
-      updatePaginationButtons();
+  document.getElementById('prev-btn').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage();
     }
+  });
+
+  document.getElementById('next-btn').addEventListener('click', () => {
+    if (currentPage < getTotalPages()) {
+      currentPage++;
+      renderPage();
+    }
+  });
+
+  function getTotalPages() {
+    return Math.ceil(videos.length / perPage);
   }
 
-  function renderVideos(videos) {
+  function renderPage() {
+    const startIndex = (currentPage - 1) * perPage;
+    const currentVideos = videos.slice(startIndex, startIndex + perPage);
+
+    renderVideos(currentVideos);
+
+    document.getElementById('page-number').textContent = `Halaman ${currentPage} dari ${getTotalPages()}`;
+    document.getElementById('page-info').textContent = `Total Video: ${videos.length} | Total Halaman: ${getTotalPages()}`;
+
+    document.getElementById('prev-btn').disabled = currentPage === 1;
+    document.getElementById('next-btn').disabled = currentPage === getTotalPages();
+  }
+
+  function renderVideos(currentVideos) {
     const container = document.getElementById('video-container');
     container.innerHTML = '';
 
-    videos.forEach(item => {
+    currentVideos.forEach(item => {
       const videoId = item.id.videoId;
       const title = item.snippet.title;
 
@@ -60,7 +98,7 @@
       col.innerHTML = `
         <div class="video-container">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/${videoId}" title="${title}" aria-label="${title}" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/${videoId}" title="${title}" allowfullscreen></iframe>
           </div>
           <div class="video-title" title="${title}">${title}</div>
         </div>
@@ -70,20 +108,22 @@
     });
   }
 
-  function updatePaginationButtons() {
-    document.getElementById('prev-btn').disabled = !prevPageToken;
-    document.getElementById('next-btn').disabled = !nextPageToken;
+  async function fetchAllVideos() {
+    let nextPageToken = '';
+    do {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&type=video&maxResults=50${nextPageToken ? `&pageToken=${nextPageToken}` : ''}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (!data.items) break;
+
+      videos.push(...data.items);
+      nextPageToken = data.nextPageToken;
+    } while (nextPageToken);
+
+    renderPage();
   }
 
-  document.getElementById('next-btn').addEventListener('click', () => {
-    if (nextPageToken) fetchVideos(nextPageToken);
-  });
-
-  document.getElementById('prev-btn').addEventListener('click', () => {
-    if (prevPageToken) fetchVideos(prevPageToken);
-  });
-
-  fetchVideos(); // Load pertama
+  fetchAllVideos();
 </script>
 
 <?php include 'footer.php'; ?>
@@ -102,7 +142,7 @@
   }
   .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 6px;
