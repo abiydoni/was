@@ -36,7 +36,6 @@ include'valid.php';
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Data Master</a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="anggota_add.php">File Anggota</a></li>
-                <li><a href="video_add.php">File Video</a></li>
                  <li><a href="layanan_add.php">File Layanan</a></li>
                   <li><a href="user_add.php">File User</a></li>
                    <li><a href="skil_add.php">File Rekor</a></li>
